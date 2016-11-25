@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME</title>
+</head>
+<body>
+
+{% for school in data %}
+<div class="blog">
+	<h1>{{school.name}}</h1>
+	<p>{{school.address}}</p>
+	<br>
+</div>
+{% endfor %}
+
+</body>
+</html>
