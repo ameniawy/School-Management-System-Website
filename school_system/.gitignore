@@ -1,3 +1,4 @@
 *.pyc
 school_system/*.pyc
 administrator/*.pyc
+settings.py

@@ -128,4 +128,4 @@ DB_USERNAME = 'root'
 DB_PASSWORD = 'root'
 DB_NAME = 'school_system'
 DB_HOST = 'localhost'
- 
+
