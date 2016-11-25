@@ -12,6 +12,7 @@ I needed to install this package: python-mysqldb
 2) Then change the attributes inside the settings.py file to match your computer's.
 
 -- Change in the following area:
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -22,6 +23,7 @@ DATABASES = {
         'PORT': '',
     }
 }
+```
 
 ### AND
 
