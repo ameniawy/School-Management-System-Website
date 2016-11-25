@@ -3,16 +3,16 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
 import pymysql
+from django.conf import settings
 
 
 
-db =  pymysql.connect(host='localhost', # your host, usually localhost
-			 user='root', # your username
-			  passwd='root', # your password
-			  db='school_system') # name of the data base
+db =  pymysql.connect(host=settings.DB_HOST, # your host, usually localhost
+			 user=settings.DB_USERNAME, # your username
+			  passwd=settings.DB_PASSWORD, # your password
+			  db=settings.DB_NAME) # name of the data base
 db.set_charset('utf8mb4')
-# you must create a Cursor object. It will let
-#  you execute all the queries you need
+# you must create a Cursor object. It.DB_HOST  you execute all the queries you need
 cur = db.cursor()
 
 # Create your views here.
