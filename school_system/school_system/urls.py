@@ -18,7 +18,8 @@ from django.contrib import admin
 import administrator.views
 
 urlpatterns = [
-	url(r'^', administrator.views.school_home, name='school_home'),
+	
     url(r'^admin/', admin.site.urls),
     url(r'^administrator/', administrator.views.home, name='admin_home'),
+    url(r'^', administrator.views.school_home, name='school_home'),
 ]

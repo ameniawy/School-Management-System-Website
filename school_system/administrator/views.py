@@ -27,9 +27,19 @@ def school_home(request):
 		all_data.append(data_dict)
 
 	
-	
 	return TemplateResponse(request,'main/main.html',{"data": all_data})
 
+
+def all_children(request):
+	cur.execute("SELECT name FROM Children")
+	data = cur.fetchall()
+	all_data = []
+	for record in data:
+		data_dict = {}
+		data_dict['name'] = record[0]
+		all_data.append(data_dict)
+
+	return TemplateResponse(request,'main/main.html',{"data": all_data})
 
 def home(request):
 	html = '<h1>Hi everyone this is our first page</h1>'
