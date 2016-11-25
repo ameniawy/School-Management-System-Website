@@ -26,14 +26,12 @@ DATABASES = {
 ```
 
 ### AND
-
+```python
 DB_USERNAME = 'root'
-
 DB_PASSWORD = 'root'
-
 DB_NAME = 'school_system'
-
 DB_HOST = 'localhost'
+```
 
 3) run the following commands:
 
