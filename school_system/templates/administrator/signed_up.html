@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HOME</title>
+</head>
+<body>
+
+{% for teacher in data %}
+<div class="teacher">
+	<p>{{teacher.first_name}}  {{teacher.middle_name}}  {{teacher.last_name}} | {{teacher.birth_date}} | {{teacher.email}}</p>
+    <form form action="/administrator/approve/" method="post">
+        {% csrf_token %}
+
+        <input type="hidden" name="first_name" value={{teacher.first_name}} />
+        <input type="hidden" name="middle_name" value={{teacher.middle_name}} />
+        <input type="hidden" name="last_name" value={{teacher.last_name}} />
+
+
+        <input type="submit" value="Approve {{teacher.first_name}} as a teacher" />
+    </form>
+	<br>
+</div>
+{% endfor %}
+
+</body>
+</html>

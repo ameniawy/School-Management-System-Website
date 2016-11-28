@@ -18,8 +18,21 @@ from django.contrib import admin
 import administrator.views
 
 urlpatterns = [
-	
+
     url(r'^admin/', admin.site.urls),
-    url(r'^administrator/', administrator.views.home, name='admin_home'),
-    url(r'^', administrator.views.school_home, name='school_home'),
+    #url(r'^administrator/', administrator.views.home, name='admin_home'),
+
+
+
+
+    # Adminisitrator part
+    url(r'^administrator/signedup/', administrator.views.view_signedUp_teachers, name='view_signedUp_teachers'),
+    url(r'^administrator/approve/', administrator.views.approve_teacher, name='approve_teacher'),
+
+
+    # End of Administrator part
+
+
+    # KEEP FEL AKHER
+    #url(r'^', administrator.views.school_home, name='school_home'),
 ]
