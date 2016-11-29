@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator</title>
+</head>
+<body>
+
+<h1 style="text-align: center">Review Student Applicants</h1>
+<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
+{% for student in data %}
+<div class="teacher">
+	<p>Child SSN: {{student.child_ssn}} ||  Child Name: {{student.child_name}} || Birth Date: {{student.birth_date}} || Age: {{student.age}} || Parent Username: {{student.parent_username}}</p>
+    <form form action="/administrator/verify_student/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="child_ssn" value="{{student.child_ssn}}" />
+        <input type="hidden" name="child_name" value="{{student.child_name}}" />
+        <input type="submit" value="Verify Student" />
+    </form>
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>
