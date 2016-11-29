@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b3bf9d9a-41df-4457-bad4-b28a15943deb" name="Default" comment="trying pycharm">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/school_system/school_user/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/school_system/school_user/admin.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/school_system/school_user/apps.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/school_system/school_user/migrations/__init__.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/school_system/school_user/models.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/school_system/school_user/tests.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/school_system/school_user/views.py" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_system/.gitignore" afterPath="$PROJECT_DIR$/school_system/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_system/administrator/views.py" afterPath="$PROJECT_DIR$/school_system/administrator/views.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_system/school_system/urls.py" afterPath="$PROJECT_DIR$/school_system/school_system/urls.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/school_system/templates/administrator/signed_up.html" afterPath="$PROJECT_DIR$/school_system/templates/administrator/signed_up.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -42,50 +32,40 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/school_system/administrator/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="987">
-              <caret line="314" column="43" lean-forward="true" selection-start-line="314" selection-start-column="43" selection-end-line="314" selection-end-column="43" />
+            <state relative-caret-position="8350">
+              <caret line="334" column="0" lean-forward="true" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
               <folding>
                 <element signature="e#25#39#0" expanded="true" />
-                <marker date="1480422808827" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
-                <marker date="1480422808827" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
-                <marker date="1480422808827" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
-                <marker date="1480422808827" expanded="true" signature="2826:2911" ph="DELETE FROM " />
-                <marker date="1480422808827" expanded="true" signature="3270:3355" ph="DELETE FROM " />
-                <marker date="1480422808827" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-                <marker date="1480422808827" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-                <marker date="1480422808827" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-                <marker date="1480422808827" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
-                <marker date="1480422808827" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
-                <marker date="1480422808827" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
-                <marker date="1480422808827" expanded="true" signature="4981:5092" ph="DELETE FROM " />
-                <marker date="1480422808827" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
-                <marker date="1480422808827" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
-                <marker date="1480422808827" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
-                <marker date="1480422808827" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
-                <marker date="1480422808827" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
-                <marker date="1480422808827" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
-                <marker date="1480422808827" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
-                <marker date="1480422808827" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
-                <marker date="1480422808827" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
-                <marker date="1480422808827" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
-                <marker date="1480422808827" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
-                <marker date="1480422808827" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
-                <marker date="1480422808827" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
-                <marker date="1480422808827" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
+                <marker date="1480433233315" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
+                <marker date="1480433233315" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
+                <marker date="1480433233315" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
+                <marker date="1480433233315" expanded="true" signature="2826:2911" ph="DELETE FROM " />
+                <marker date="1480433233315" expanded="true" signature="3270:3355" ph="DELETE FROM " />
+                <marker date="1480433233315" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+                <marker date="1480433233315" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+                <marker date="1480433233315" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+                <marker date="1480433233315" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
+                <marker date="1480433233315" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
+                <marker date="1480433233315" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
+                <marker date="1480433233315" expanded="true" signature="4981:5092" ph="DELETE FROM " />
+                <marker date="1480433233315" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
+                <marker date="1480433233315" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
+                <marker date="1480433233315" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
+                <marker date="1480433233315" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
+                <marker date="1480433233315" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
+                <marker date="1480433233315" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
+                <marker date="1480433233315" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
+                <marker date="1480433233315" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
+                <marker date="1480433233315" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
+                <marker date="1480433233315" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
+                <marker date="1480433233315" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
+                <marker date="1480433233315" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
+                <marker date="1480433233315" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
+                <marker date="1480433233315" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/school_system/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -112,6 +92,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/school_system/school_system/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="600">
+              <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="59" />
+              <folding>
+                <element signature="e#647#679#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -132,8 +124,8 @@
         <option value="$PROJECT_DIR$/school_system/templates/administrator/assign_teacher_to_course.html" />
         <option value="$PROJECT_DIR$/school_system/administrator/urls.py" />
         <option value="$PROJECT_DIR$/school_system/templates/administrator/index.html" />
-        <option value="$PROJECT_DIR$/school_system/administrator/views.py" />
         <option value="$PROJECT_DIR$/school_system/.gitignore" />
+        <option value="$PROJECT_DIR$/school_system/administrator/views.py" />
       </list>
     </option>
   </component>
@@ -144,7 +136,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1345" />
+    <option name="x" value="65" />
     <option name="y" value="24" />
     <option name="width" value="1855" />
     <option name="height" value="1056" />
@@ -164,6 +156,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -207,50 +200,6 @@
               <option name="myItemId" value="templates" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="databases_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="databases_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school_system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="templates" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="administrator" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="databases_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="databases_project" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school_system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="school_system" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -272,7 +221,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -547,7 +495,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1345" y="24" width="1855" height="1056" extended-state="6" />
+    <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14447439" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -556,18 +504,18 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20183486" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -586,36 +534,100 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/school_system/administrator/views.py">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#25#39#0" expanded="true" />
+            <marker date="1480433233315" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
+            <marker date="1480433233315" expanded="true" signature="2826:2911" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3270:3355" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
+            <marker date="1480433233315" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
+            <marker date="1480433233315" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
+            <marker date="1480433233315" expanded="true" signature="4981:5092" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
+            <marker date="1480433233315" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
+            <marker date="1480433233315" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
+            <marker date="1480433233315" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
+            <marker date="1480433233315" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
+            <marker date="1480433233315" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
+            <marker date="1480433233315" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
+            <marker date="1480433233315" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
+            <marker date="1480433233315" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
+            <marker date="1480433233315" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/templates/administrator/assign_teacher_to_course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/administrator/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="33" column="115" lean-forward="false" selection-start-line="33" selection-start-column="115" selection-end-line="33" selection-end-column="115" />
+          <folding>
+            <element signature="e#61#93#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/school_system/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="550">
+          <caret line="24" column="59" lean-forward="true" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
+          <folding>
+            <element signature="e#647#679#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/administrator/views.py">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4950">
           <caret line="204" column="63" lean-forward="false" selection-start-line="204" selection-start-column="63" selection-end-line="204" selection-end-column="63" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
-            <marker date="1480422808827" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
-            <marker date="1480422808827" expanded="true" signature="2826:2911" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3270:3355" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
-            <marker date="1480422808827" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
-            <marker date="1480422808827" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
-            <marker date="1480422808827" expanded="true" signature="4981:5092" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
-            <marker date="1480422808827" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
-            <marker date="1480422808827" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
-            <marker date="1480422808827" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
-            <marker date="1480422808827" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
-            <marker date="1480422808827" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
-            <marker date="1480422808827" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
-            <marker date="1480422808827" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
-            <marker date="1480422808827" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
-            <marker date="1480422808827" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
+            <marker date="1480433233315" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
+            <marker date="1480433233315" expanded="true" signature="2826:2911" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3270:3355" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
+            <marker date="1480433233315" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
+            <marker date="1480433233315" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
+            <marker date="1480433233315" expanded="true" signature="4981:5092" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
+            <marker date="1480433233315" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
+            <marker date="1480433233315" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
+            <marker date="1480433233315" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
+            <marker date="1480433233315" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
+            <marker date="1480433233315" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
+            <marker date="1480433233315" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
+            <marker date="1480433233315" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
+            <marker date="1480433233315" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
+            <marker date="1480433233315" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
           </folding>
         </state>
       </provider>
@@ -624,23 +636,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="13" column="53" lean-forward="false" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/school_user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/school_user/views.py" />
     <entry file="file://$PROJECT_DIR$/school_system/templates/administrator/signed_up_students.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="19" column="22" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -649,7 +652,7 @@
         <state relative-caret-position="675">
           <caret line="29" column="24" lean-forward="false" selection-start-line="29" selection-start-column="11" selection-end-line="29" selection-end-column="24" />
           <folding>
-            <element signature="e#647#679#0" expanded="false" />
+            <element signature="e#647#679#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -660,32 +663,32 @@
           <caret line="47" column="18" lean-forward="false" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
-            <marker date="1480422808827" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
-            <marker date="1480422808827" expanded="true" signature="2826:2911" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3270:3355" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
-            <marker date="1480422808827" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
-            <marker date="1480422808827" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
-            <marker date="1480422808827" expanded="true" signature="4981:5092" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
-            <marker date="1480422808827" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
-            <marker date="1480422808827" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
-            <marker date="1480422808827" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
-            <marker date="1480422808827" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
-            <marker date="1480422808827" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
-            <marker date="1480422808827" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
-            <marker date="1480422808827" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
-            <marker date="1480422808827" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
-            <marker date="1480422808827" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
+            <marker date="1480433233315" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
+            <marker date="1480433233315" expanded="true" signature="2826:2911" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3270:3355" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
+            <marker date="1480433233315" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
+            <marker date="1480433233315" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
+            <marker date="1480433233315" expanded="true" signature="4981:5092" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
+            <marker date="1480433233315" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
+            <marker date="1480433233315" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
+            <marker date="1480433233315" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
+            <marker date="1480433233315" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
+            <marker date="1480433233315" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
+            <marker date="1480433233315" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
+            <marker date="1480433233315" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
+            <marker date="1480433233315" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
+            <marker date="1480433233315" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
           </folding>
         </state>
       </provider>
@@ -695,7 +698,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#647#679#0" expanded="false" />
+            <element signature="e#647#679#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -706,32 +709,32 @@
           <caret line="42" column="47" lean-forward="false" selection-start-line="42" selection-start-column="47" selection-end-line="42" selection-end-column="47" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
-            <marker date="1480422808827" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
-            <marker date="1480422808827" expanded="true" signature="2826:2911" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3270:3355" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
-            <marker date="1480422808827" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
-            <marker date="1480422808827" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
-            <marker date="1480422808827" expanded="true" signature="4981:5092" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
-            <marker date="1480422808827" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
-            <marker date="1480422808827" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
-            <marker date="1480422808827" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
-            <marker date="1480422808827" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
-            <marker date="1480422808827" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
-            <marker date="1480422808827" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
-            <marker date="1480422808827" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
-            <marker date="1480422808827" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
-            <marker date="1480422808827" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
+            <marker date="1480433233315" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
+            <marker date="1480433233315" expanded="true" signature="2826:2911" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3270:3355" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
+            <marker date="1480433233315" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
+            <marker date="1480433233315" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
+            <marker date="1480433233315" expanded="true" signature="4981:5092" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
+            <marker date="1480433233315" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
+            <marker date="1480433233315" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
+            <marker date="1480433233315" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
+            <marker date="1480433233315" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
+            <marker date="1480433233315" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
+            <marker date="1480433233315" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
+            <marker date="1480433233315" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
+            <marker date="1480433233315" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
+            <marker date="1480433233315" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
           </folding>
         </state>
       </provider>
@@ -741,7 +744,7 @@
         <state relative-caret-position="342">
           <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
           <folding>
-            <element signature="e#647#679#0" expanded="false" />
+            <element signature="e#647#679#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -752,32 +755,32 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
-            <marker date="1480422808827" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
-            <marker date="1480422808827" expanded="true" signature="2826:2911" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3270:3355" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
-            <marker date="1480422808827" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
-            <marker date="1480422808827" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
-            <marker date="1480422808827" expanded="true" signature="4981:5092" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
-            <marker date="1480422808827" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
-            <marker date="1480422808827" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
-            <marker date="1480422808827" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
-            <marker date="1480422808827" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
-            <marker date="1480422808827" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
-            <marker date="1480422808827" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
-            <marker date="1480422808827" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
-            <marker date="1480422808827" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
-            <marker date="1480422808827" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
+            <marker date="1480433233315" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
+            <marker date="1480433233315" expanded="true" signature="2826:2911" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3270:3355" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
+            <marker date="1480433233315" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
+            <marker date="1480433233315" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
+            <marker date="1480433233315" expanded="true" signature="4981:5092" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
+            <marker date="1480433233315" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
+            <marker date="1480433233315" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
+            <marker date="1480433233315" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
+            <marker date="1480433233315" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
+            <marker date="1480433233315" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
+            <marker date="1480433233315" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
+            <marker date="1480433233315" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
+            <marker date="1480433233315" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
+            <marker date="1480433233315" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
           </folding>
         </state>
       </provider>
@@ -787,7 +790,7 @@
         <state relative-caret-position="342">
           <caret line="21" column="12" lean-forward="false" selection-start-line="21" selection-start-column="12" selection-end-line="21" selection-end-column="12" />
           <folding>
-            <element signature="e#647#679#0" expanded="false" />
+            <element signature="e#647#679#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -824,7 +827,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="475">
           <caret line="19" column="22" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="34" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -832,17 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="25">
           <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/school_system/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" column="59" lean-forward="true" selection-start-line="24" selection-start-column="59" selection-end-line="24" selection-end-column="59" />
-          <folding>
-            <element signature="e#647#679#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -850,31 +841,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="242">
           <caret line="11" column="21" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/school_user/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="23" column="39" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/school_user/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/school_user/views.py" />
+    <entry file="file://$PROJECT_DIR$/school_system/school_user/models.py" />
     <entry file="file://$PROJECT_DIR$/school_system/templates/administrator/create_activity.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
           <caret line="29" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -882,7 +857,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
           <caret line="17" column="7" lean-forward="true" selection-start-line="17" selection-start-column="7" selection-end-line="17" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/templates/administrator/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/school_system/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="82" column="28" lean-forward="true" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="100">
+          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/templates/administrator/assign_teacher_to_course.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="32" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/school_system/school_system/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="24" column="4" lean-forward="true" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="59" />
+          <folding>
+            <element signature="e#647#679#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -896,73 +909,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/templates/administrator/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="52" lean-forward="false" selection-start-line="16" selection-start-column="52" selection-end-line="16" selection-end-column="52" />
-          <folding>
-            <element signature="n#style#0;n#h1#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/school_system/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="82" column="28" lean-forward="true" selection-start-line="82" selection-start-column="28" selection-end-line="82" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/templates/administrator/assign_teacher_to_course.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/school_system/administrator/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="314" column="43" lean-forward="true" selection-start-line="314" selection-start-column="43" selection-end-line="314" selection-end-column="43" />
+        <state relative-caret-position="8350">
+          <caret line="334" column="0" lean-forward="true" selection-start-line="334" selection-start-column="0" selection-end-line="334" selection-end-column="0" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
-            <marker date="1480422808827" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
-            <marker date="1480422808827" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
-            <marker date="1480422808827" expanded="true" signature="2826:2911" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3270:3355" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
-            <marker date="1480422808827" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
-            <marker date="1480422808827" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
-            <marker date="1480422808827" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
-            <marker date="1480422808827" expanded="true" signature="4981:5092" ph="DELETE FROM " />
-            <marker date="1480422808827" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
-            <marker date="1480422808827" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
-            <marker date="1480422808827" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
-            <marker date="1480422808827" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
-            <marker date="1480422808827" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
-            <marker date="1480422808827" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
-            <marker date="1480422808827" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
-            <marker date="1480422808827" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
-            <marker date="1480422808827" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
-            <marker date="1480422808827" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
-            <marker date="1480422808827" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
-            <marker date="1480422808827" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
+            <marker date="1480433233315" expanded="true" signature="834:864" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="1973:2061" ph="SELECT * FRO... signedUpTeachers" />
+            <marker date="1480433233315" expanded="true" signature="2391:2612" ph="INSERT INTO Teachers... " />
+            <marker date="1480433233315" expanded="true" signature="2826:2911" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3270:3355" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="3580:3627" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3648" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="3580:3651" ph="SELECT * FRO... Child_applied_by_Parent_in_School" />
+            <marker date="1480433233315" expanded="true" signature="4341:4466" ph="UPDATE Child... " />
+            <marker date="1480433233315" expanded="true" signature="4341:4515" ph="UPDATE FROM " />
+            <marker date="1480433233315" expanded="true" signature="4574:4616" ph="INSERT INTO Students... " />
+            <marker date="1480433233315" expanded="true" signature="4981:5092" ph="DELETE FROM " />
+            <marker date="1480433233315" expanded="true" signature="5301:5457" ph="SELECT c.ssn... Students" />
+            <marker date="1480433233315" expanded="true" signature="6295:6365" ph="UPDATE Stude... " />
+            <marker date="1480433233315" expanded="true" signature="6700:6714" ph="SELECT * FRO... Administrator" />
+            <marker date="1480433233315" expanded="true" signature="6700:6827" ph="SELECT * FRO... Schools" />
+            <marker date="1480433233315" expanded="true" signature="7898:8060" ph="UPDATE Schoo... " />
+            <marker date="1480433233315" expanded="true" signature="8558:8604" ph="SELECT id FR... Adminstrator" />
+            <marker date="1480433233315" expanded="true" signature="8858:8953" ph="INSERT INTO Announcements... " />
+            <marker date="1480433233315" expanded="true" signature="9275:9346" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="9481:9557" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="10239:10354" ph="INSERT INTO Activities... " />
+            <marker date="1480433233315" expanded="true" signature="10674:10745" ph="SELECT schoo... Adminstrators" />
+            <marker date="1480433233315" expanded="true" signature="10880:10956" ph="SELECT usern... Teachers" />
+            <marker date="1480433233315" expanded="true" signature="11285:11309" ph="SELECT code Courses" />
+            <marker date="1480433233315" expanded="true" signature="11697:11773" ph="INSERT INTO Course_Teached_By_Teacher... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/school_system/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="7" lean-forward="true" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>

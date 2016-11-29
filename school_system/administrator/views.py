@@ -332,14 +332,3 @@ def assign_teacher_to_course(request):
 
     return index(request)
 
-
-
-
-
-
-
-
-
-
-
-
