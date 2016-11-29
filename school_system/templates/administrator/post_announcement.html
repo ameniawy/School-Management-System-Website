@@ -1,0 +1,33 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator</title>
+</head>
+<body>
+
+<h1>Post New Announcement</h1>
+<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
+<div class="teacher">
+    <form form action="/administrator/post_announcement/" method="post">
+        {% csrf_token %}
+
+        <p>Title:</p>
+        <input type="text" name="title" />
+        <p>Description:</p>
+        <input type="text" name="description" />
+        <p>Date (YYYY-MM-DD):</p>
+        <input type="text" name="date"/>
+        <p>Type:</p>
+        <input type="text" name="type"  />
+
+
+        <input type="submit" value="Post Announcement" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

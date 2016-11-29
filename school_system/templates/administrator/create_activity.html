@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator</title>
+</head>
+<body>
+
+<h1>Create Activity</h1>
+<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
+<div class="teacher">
+    <form form action="/administrator/create_activity/" method="post">
+        {% csrf_token %}
+
+        <p>Date (YYYY-MM-DD):</p>
+        <input type="text" name="date"/>
+        <p>Location:</p>
+        <input type="text" name="location" />
+        <p>Type:</p>
+        <input type="text" name="type"  />
+        <p>Equipment:</p>
+        <input type="text" name="equipment" />
+        <p>Description:</p>
+        <input type="text" name="description" />
+
+        <select name="id">
+            {% for teacher in data %}
+            <option value="{{teacher.id}}">{{teacher.username}}</option>
+
+            {% endfor %}
+        </select>
+
+
+        <input type="submit" value="Create Activity" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

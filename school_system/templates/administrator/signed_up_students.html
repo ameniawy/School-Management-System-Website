@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator</title>
+</head>
+<body>
+
+<h1>Review Student Applicants</h1>
+<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
+{% for student in data %}
+<div class="teacher">
+	<p>Parent Username: {{student.parent}} ||  Child SSN: {{student.child_ssn}} || School: {{student.school_name}} || School Address: {{student.school_address}}</p>
+    <form form action="/administrator/approve_student/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="child_ssn" value={{student.child_ssn}} />
+        <input type="hidden" name="school_name" value={{student.school_name}} />
+        <input type="hidden" name="school_address" value={{student.school_address}} />
+        <input type="submit" value="Approve Application" />
+    </form>
+
+    <form form action="/administrator/reject_student/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="child_ssn" value={{student.child_ssn}} />
+        <input type="hidden" name="school_name" value={{student.school_name}} />
+        <input type="hidden" name="school_address" value={{student.school_address}} />
+        <input type="submit" value="Reject Application" />
+    </form>
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>

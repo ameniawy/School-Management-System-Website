@@ -14,25 +14,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
+from django.conf.urls import include
 from django.contrib import admin
-import administrator.views
+
 
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
-    #url(r'^administrator/', administrator.views.home, name='admin_home'),
+
+    url(r'^administrator/', include('administrator.urls')),
 
 
-
-
-    # Adminisitrator part
-    url(r'^administrator/signedup/', administrator.views.view_signedUp_teachers, name='view_signedUp_teachers'),
-    url(r'^administrator/approve/', administrator.views.approve_teacher, name='approve_teacher'),
-
-
-    # End of Administrator part
-
-
-    # KEEP FEL AKHER
-    #url(r'^', administrator.views.school_home, name='school_home'),
 ]
