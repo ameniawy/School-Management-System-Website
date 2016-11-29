@@ -18,20 +18,9 @@ from django.conf.urls import include
 from django.contrib import admin
 
 
-
 urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
-
-    url(r'^administrator/', include('administrator.urls')),
-
-=======
-import administrator.views
-from django.conf.urls import include
-urlpatterns = [
 	url(r'^teacher/', include('teacher.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^administrator/', administrator.views.home, name='admin_home'),
-    url(r'^', administrator.views.school_home, name='school_home')
-
-]
+    url(r'^administrator/', include('administrator.urls'))
+    ]
