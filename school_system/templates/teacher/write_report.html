@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      Write a Report
+    </title>
+  </head>
+
+  <body>
+    <form name="report" action="/teacher/submitted_report" method="get">
+      Student ID: <input type="text" name="student_id" value="">
+      Date: <input type="text" name="date" value="">
+      Content: <input type="text" name="content" value="">
+      {{date}} || {{student_id}} || {{content}} || {{teacher_id}}
+      <input type="submit" value="Submit">
+    </form>
+  </body>
+
+</html>

@@ -4,3 +4,6 @@ administrator/*.pyc
 settings.py
 .idea/*
 .idea/
+../idea/*
+../idea/
+
