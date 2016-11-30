@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 import pymysql
 from django.conf import settings
-
+import datetime
 # Create your views here.
 
 
@@ -12,10 +12,20 @@ db.set_charset('utf8mb4')
 cur = db.cursor()
 
 
+
+
 def  home(request):
     unkown_user = 'mhmd'
+    cur.execute("SELECT name, s_address, s_type FROM Schools")
+    data = cur.fetchall()
+    all_data = []
+    for record in data:
+        data_dict = {}
+        data_dict['name'] = record[0]
+        data_dict['address'] = record[1]
+        all_data.append(data_dict)
 
-    return render(request,'parent/index.html',{})
+    return render(request,'parent/apply/apply_school.html',{'schools':all_data,'user':unkown_user})
 
 
 def apply_child(request):
@@ -36,16 +46,20 @@ def apply_child(request):
 
 def accepted_children(request):
     unkown_user = 'mhmd'
-    cur.execute('call viewChildrenAcceptedSchools(%s)', (unkown_user))
+    exec2= "select cap.school_name, cap.school_address, cap.child_ssn from Child_applied_by_Parent_in_School cap where cap.accepted = 1 and cap.child_ssn in (select ssn from Children where parent_username = %s) order by cap.child_ssn;"
+    cur.execute(exec2, (unkown_user))
     data = cur.fetchall()
     all_data = []
     for record in data:
         data_dict = {}
         data_dict['name'] = record[0]
         data_dict['address'] = record[1]
+        data_dict['child_ssn'] = record[2]
+
         all_data.append(data_dict)
     print(all_data)
-    return HttpResponse(all_data)
+
+    return render(request,'parent/choose/accpeted_schools.html', {'schools':all_data,'user':unkown_user})
 
 def choose_school(request):
     unkown_user = 'mhmd'
@@ -72,8 +86,6 @@ def choose_school(request):
         print('hi')
         cur.execute(exec,(unkown_user,ssn,school_name,school_address))
         db.commit()
-        cur.execute(exec3,(ssn))
-        db.commit()
 
         cur.execute(exec4,(ssn))
         student_id = cur.fetchall()[0][0]
@@ -94,12 +106,17 @@ def reports(request):
         data_dict = {}
         data_dict['date'] = record[0]
         data_dict['student_id'] = record[1]
+        data_dict['teacher_id'] = record[2]
+        d = str(data_dict['date'])+''
+        data_dict['format_date'] = d
+
         cur.execute(exec,record[2])
         teacher_name = cur.fetchall()[0][0]
         data_dict['teacher_name'] = teacher_name
         data_dict['content'] = record[3]
         all_data.append(data_dict)
-    return HttpResponse(all_data)
+
+    return render(request, 'parent/reports/reports.html', {'reports':all_data,'user':unkown_user})
 
 
 def report_reply(request):
@@ -128,9 +145,11 @@ def teachers(request):
         data_dict['name'] = record[3]
         data_dict['id'] = record[0]
         cur.execute('call parentViewOverallTeacherRating(%s)', (record[0]))
-        data_dict['rating'] = cur.fetchall()[0][2]
+        data2 = cur.fetchall()
+        if len(data2)>0:
+            data_dict['rating'] = data2[0][2]
         all_data.append(data_dict)
-    return HttpResponse(all_data)
+    return render(request, 'parent/teachers/teachers.html', {'teachers':all_data,'user':unkown_user})
 
 
 
@@ -158,7 +177,7 @@ def schools(request):
         data_dict['name'] = record[0]
         data_dict['address'] = record[1]
         all_data.append(data_dict)
-    return HttpResponse(all_data)
+    return render(request, 'parent/accepted_schools/my_school.html', {'schools':all_data,'user':unkown_user})
 
 def write_review(request):
     unkown_user = 'mhmd'
@@ -188,11 +207,23 @@ def get_reviews(request):
         data_dict['school_address'] = record[2]
         data_dict['review'] = record[3]
         all_data.append(data_dict)
-    return HttpResponse(all_data)
+    return render(request, 'parent/reviews/reviews.html', {'reviews':all_data,'user':unkown_user})
 
 
+def delete_review(request):
+    unkown_user = 'mhmd'
 
+    if request.method == 'POST':
+        parent_user = unkown_user
+        school_name = request.POST.get('school_name')
+        school_address = request.POST.get('school_address')
+        print(school_name)
+        print(school_address)
 
+        cur.execute('call deleteSchoolReview(%s,%s,%s)',(parent_user,school_name,school_address))
+        db.commit()
+        return HttpResponse('done deleted')
+    return render(request, 'parent/form.html', {})
 
 
 

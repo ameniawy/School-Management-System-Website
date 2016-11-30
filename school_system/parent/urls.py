@@ -10,8 +10,9 @@ urlpatterns = [
     url(r'^report_reply/$', report_reply, name='parent_reply'),
     url(r'^teachers/$', teachers, name='parent_teachers'),
     url(r'^teachers_rate/$', rate_teacher, name='parent_rate'),
-    url(r'^schools/$', schools, name='schools'),
+    url(r'^schools/$', schools, name='parent_schools'),
     url(r'^write_review/$', write_review, name='parent_write'),
-url(r'^reviews/$', get_reviews, name='reviews')
+    url(r'^reviews/$', get_reviews, name='parent_reviews'),
+    url(r'^delete_reviews/$', delete_review, name='delete_review')
 
 ]

@@ -1,0 +1,35 @@
+{% extends "../index.html" %}
+{% block content %}
+{% for school in schools %}
+<div class="card">
+    <div class="card-image waves-effect waves-block waves-light">
+      <img class="activator" src="http://www.cairoscene.com/////////////Content/Admin/Uploads/Articles/ArticleImages/cf0b0d82-6bfb-4f16-a05c-dd802362ae05.jpg">
+    </div>
+    <div class="card-content">
+      <span class="card-title  grey-text text-darken-4">{{school.name}}</span>
+        <div class="row">
+        <span class="" style="margin-left:10px"><strong style="color:red">Child with  ssn {{school.child_ssn}} has been ACCEPTED</strong></span>
+
+    </div>
+    <div class="">
+        <form action="{% url 'parent:parent_choose' %}" method="POST">
+
+            {%csrf_token%}
+            <input hidden type="text" value="{{school.name}}" name="school_name">
+            <input hidden type="text" value="{{school.address}}" name="school_address">
+            <input hidden type="text" value="{{school.child_ssn}}" name="ssn">
+
+        <input type="submit" value="Enroll Child" class="waves-effect waves-light btn">
+
+    </form>
+
+    </div>
+
+    </div>
+
+
+
+  </div>
+{% endfor %}
+
+{% endblock %}
