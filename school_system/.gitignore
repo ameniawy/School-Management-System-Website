@@ -6,4 +6,5 @@ settings.py
 .idea/
 ../idea/*
 ../idea/
+**/.idea/
 
