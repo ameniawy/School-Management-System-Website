@@ -23,6 +23,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^administrator/', include('administrator.urls')),
+    url(r'^account/', include('account.urls')),
+	url(r'^teacher/', include('teacher.urls')),
+    ]
 
-
-]

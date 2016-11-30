@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teacher</title>
+</head>
+<body>
+
+
+<h1>View All Assignments</h1>
+<a href="/teacher/"><h3>Go To Teacher Home</h3></a>
+
+{% for assignment in data %}
+<div class="course">
+
+
+  <p>#{{assignment.ass_num}} || Course: {{assignment.course_code}} || content: {{assignment.content}} || DueDate: {{assignment.due_date}} || PostDate: {{assignment.post_date}}</p>
+
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>

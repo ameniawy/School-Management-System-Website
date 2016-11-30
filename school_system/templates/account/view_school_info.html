@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{school.name}}</title>
+</head>
+<body>
+
+
+
+<a href="/account/"><h3>Go To Home</h3></a>
+
+<h1>{{school.name}}</h1>
+<p><h3>Address</h3> {{school.address}}</p>
+<p><h3>Phone</h3> {{school.phone_number}}</p>
+<p><h3>Mission</h3> {{school.mission}}</p>
+<p><h3>Vision</h3> {{school.vision}}</p>
+<p><h3>Information</h3> {{school.information}}</p>
+<p><h3>Main Language</h3> {{school.language}}</p>
+<p><h3>Fees</h3> {{school.fees}}</p>
+<p><h3>Type</h3> {{school.type}}</p>
+<hr>
+
+<h2>Reviews about {{school.name}}</h2>
+{% for review in reviews %}
+<hr>
+<div class="school">
+    <p>{{review.review}}</p>
+    <h3>Review By: {{review.parent}}</h3>
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>

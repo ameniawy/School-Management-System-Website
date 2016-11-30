@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login</title>
+</head>
+<body>
+
+<h1>Login Ussr</h1>
+<a href="/account/"><h3>Go To Home</h3></a>
+
+<div class="teacher">
+    <form form action="/account/login/" method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Login" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

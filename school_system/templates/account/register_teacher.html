@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+
+<h1>Register as a Teacher</h1>
+<a href="/account/"><h3>Go To Home</h3></a>
+
+<div class="teacher">
+    <form form action="/account/register_teacher/" method="post">
+        {% csrf_token %}
+        <p>First Name:</p>
+        <input type="text" name="first_name"/>
+        <p>Middle Name:</p>
+        <input type="text" name="middle_name"/>
+        <p>Last Name:</p>
+        <input type="text" name="last_name"/>
+        <p>E-Mail:</p>
+        <input type="text" name="email"/>
+        <p>Birth Date (YYYY-MM-DD):</p>
+        <input type="text" name="birth_date"/>
+        <p>Gender:</p>
+        <input type="text" name="gender"/>
+        <p>Address:</p>
+        <input type="text" name="address"/>
+        <p>Home Phone Number:</p>
+        <input type="text" name="home_phone"/>
+        <p>Years of Experience:</p>
+        <input type="text" name="years"/>
+
+        <p>School Name:</p>
+        <select name="school_name">
+            {% for school in schools %}
+            <option value="{{school.name}}">{{school.name}} {{school.address}}</option>
+
+            {% endfor %}
+        </select>
+
+        <p>School Address:</p>
+        <input type="text" name="school_address"/>
+
+
+
+        <input type="submit" value="Register" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

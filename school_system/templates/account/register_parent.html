@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Register</title>
+</head>
+<body>
+
+<h1>Register as a Parent</h1>
+<a href="/account/"><h3>Go To Home</h3></a>
+
+<div class="teacher">
+    <form form action="/account/register_parent/" method="post">
+        {% csrf_token %}
+        <p>Username:</p>
+        <input type="text" name="username"/>
+        <p>Password:</p>
+        <input type="password" name="password"/>
+        <p>First Name:</p>
+        <input type="text" name="first_name"/>
+        <p>Last Name:</p>
+        <input type="text" name="last_name"/>
+        <p>E-Mail:</p>
+        <input type="text" name="email"/>
+        <p>Address:</p>
+        <input type="text" name="address"/>
+        <p>Phone Number:</p>
+        <input type="text" name="phone_number"/>
+
+        <p>Course:</p>
+
+        <input type="submit" value="Add Teacher To Course" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

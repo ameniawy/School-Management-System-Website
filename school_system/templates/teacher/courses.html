@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teacher</title>
+</head>
+<body>
+
+<a href="/teacher/"><h3>Go To Teacher Home</h3></a>
+
+{% for course in data %}
+<div class="course">
+
+  <p>Code: {{course.code}} || Name: {{course.name}} || Course Level: {{course.c_level}} || Description: {{course.description}} || Grade: {{course.grade_code}} </p>
+
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>

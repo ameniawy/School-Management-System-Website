@@ -1,0 +1,21 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Students</title>
+</head>
+<body>
+
+<a href="/teacher/"><h3>Go To Teacher Home</h3></a>
+
+{% for student in data %}
+<div class="students">
+
+  <p>StudentID: {{student.id}} || Username: {{student.username}}</p>
+
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>

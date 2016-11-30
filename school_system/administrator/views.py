@@ -23,7 +23,11 @@ def index(request):
 
 
 def view_signed_up_teachers(request):
-    cur.execute("SELECT * FROM signedUpTeachers")
+
+    username = "meni"  # HARDCODED AND NEEDS TO BE CHANGED
+    cur.execute("SELECT first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address, years_of_experience FROM Teachers WHERE (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s) AND username is NULL", (username))
+
+
     data = cur.fetchall()
     all_data = []
     for record in data:
@@ -95,7 +99,10 @@ def view_applied_students(request):
     """
         View all signed up students
     """
-    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE accepted = '0' ")
+
+    username = "mohabamroo"
+    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE accepted = '0' AND (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s)", (username))
+
     data = cur.fetchall()
 
     all_data = []
@@ -149,6 +156,8 @@ def view_accepted_students(request):
         View accepted students
     """
 
+    username = "mohabamroo"
+
     cur.execute("SELECT c.ssn, c.name, c.birth_date, c.gender, c.age, c.parent_username FROM Students s INNER JOIN Children c ON s.child_ssn = c.ssn WHERE s.username is NULL")
     data = cur.fetchall()
 
@@ -179,6 +188,11 @@ def verify_student(request):
     password = 'password'
 
     cur.execute("UPDATE Students SET username = %s, password_ = %s WHERE child_ssn = %s", (username, password, child_ssn))
+
+
+    #cur.execute("CALL verifyEnrolledStudent(%s,%s,%s,%s)",
+                #(child_ssn, password, child_ssn))
+
 
     db.commit()
 
