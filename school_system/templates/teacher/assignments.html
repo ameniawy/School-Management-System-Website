@@ -15,6 +15,12 @@
 
 
   <p>#{{assignment.ass_num}} || Course: {{assignment.course_code}} || content: {{assignment.content}} || DueDate: {{assignment.due_date}} || PostDate: {{assignment.post_date}}</p>
+    <form form action="/teacher/view_solutions/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="ass_num" value="{{assignment.ass_num}}" />
+        <input type="hidden" name="course_code" value="{{assignment.course_code}" />
+        <input type="submit" value="View Assignment Solutions" />
+    </form>
 
 </div>
 <hr>

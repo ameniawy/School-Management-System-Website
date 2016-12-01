@@ -2,9 +2,6 @@
 school_system/*.pyc
 administrator/*.pyc
 settings.py
-.idea/*
 .idea/
-../idea/*
-../idea/
+../.idea/
 **/.idea/
-

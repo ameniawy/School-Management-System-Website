@@ -40,7 +40,7 @@ def login_view(request):
             password = form.cleaned_data.get("password")
             newUser = authenticate(username=username, password=password)
             login(request, newUser)
-            type = get_object_or_404(user_type, user = newUser).type
+            type = get_object_or_404(user_type, user=newUser).type
             # TODO: Check on type and return a specific page accordingly
 
             return HttpResponse(type) # TODO: CHANGEEEEE!
@@ -171,11 +171,37 @@ def view_school_info(request):
     return TemplateResponse(request, 'account/view_school_info.html', {"school": school, "reviews": all_reviews})
 
 
+def search(request):
+    """
+        Search for any school by its name, address or its type (national/international).
+    """
+
+    if request.method == 'GET':
+        return TemplateResponse(request, 'account/search.html')
 
 
+    school_name = request.POST.get("school_name")
+    school_address = request.POST.get("school_address")
+    type = request.POST.get("type")
 
+    cur.execute("SELECT * FROM Schools WHERE name=%s OR s_address=%s OR s_type=%s", (school_name, school_address, type))
+    data = cur.fetchall()
 
+    schools = []
 
+    for school_info in data:
+        school = {}
+        school['name'] = school_info[0]
+        school['address'] = school_info[1]
+        school['phone_number'] = school_info[2]
+        school['email'] = school_info[3]
+        school['information'] = school_info[4]
+        school['vision'] = school_info[5]
+        school['mission'] = school_info[6]
+        school['language'] = school_info[7]
+        school['fees'] = school_info[8]
+        school['type'] = school_info[9]
+        schools.append(school)
 
-
+    return TemplateResponse(request, 'account/view_schools.html', {"schools": schools})
 

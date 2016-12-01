@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User</title>
+</head>
+<body>
+
+
+<h1>All Schools</h1>
+<a href="/account/"><h3>Search For Schools</h3></a>
+
+
+<div class="school">
+	<form form action="/account/search/" method="post">
+		{% csrf_token %}
+        <p>School Name:</p>
+		<input type="text" name="school_name" />
+        <p>School Address:</p>
+		<input type="text" name="school_address" />
+        <p>School Type:</p>
+        <input type="text" name="type" />
+
+		<input type="submit" value="Search for school" />
+	</form>
+
+</div>
+<hr>
+
+
+</body>
+</html>

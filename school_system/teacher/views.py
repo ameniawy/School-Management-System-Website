@@ -17,10 +17,12 @@ db.set_charset('utf8mb4')
 cur = db.cursor()
 # Create your views here.
 
+
 def index(request):
     return TemplateResponse(request, 'teacher/index.html')
 
 # 1 View a list of courses names taught by him/her, listed based on their level then their grade.
+
 
 def view_courses(request):
     teacher_id = 3
@@ -46,6 +48,7 @@ def view_courses(request):
 def post_assignment(request):
     return TemplateResponse(request, 'teacher/post_assignment.html', {"data": 'not posted yet'})
 
+
 def posted_assignment(request):
     teacher_id = 3
     code =  request.GET.get('course_code')
@@ -62,6 +65,8 @@ def posted_assignment(request):
 # 3 View a list of assignments per course. For each assignment he/she can view the students solutions
 # ordered by students ids. He/she can further grade each solution.
 # NOT FINISHED! HOW TO ADD BUTTON FOR EACH ROW AND LISTEN TO IT?
+
+
 def view_assignments(request):
     teacher_id = 3
     cur.execute("SELECT * FROM Assignments a where a.teacher_id = %s", (teacher_id))
@@ -78,8 +83,31 @@ def view_assignments(request):
 
     return TemplateResponse(request, 'teacher/assignments.html', {"data": all_data})
 
+
+def view_solutions(request):
+    """
+        View solutions of an assignment belonging to a course.
+    """
+    course_code = request.POST.get('course_code')
+    ass_num = request.POST.get('ass_num')
+    cur.execute("SELECT * FROM Assignment_solved_by_Student WHERE course_code=%s AND ass_number=%s", (course_code, ass_num))
+    data = cur.fetchall()
+    all_data = []
+    for record in data:
+        data_dict = {}
+        data_dict['ass_num'] = record[0]
+        data_dict['course_code'] = record[1]
+        data_dict['student_id'] = record[2]
+        data_dict['answer'] = record[3]
+        all_data.append(data_dict)
+
+
+
+
 # 4 Write a report about a student in a specific course. The report contains his/her comments.
 # but the course part wasn't mentioned before!!!
+
+
 def write_report(request):
     return TemplateResponse(request, 'teacher/write_report.html', {})
 

@@ -14,6 +14,7 @@ urlpatterns = [
     url(r'^post_assignment/', teacher.views.post_assignment, name='post_assignment'),
     url(r'^posted_assignment/', teacher.views.posted_assignment, name='posted_assignment'),
     url(r'^view_assignments/', teacher.views.view_assignments, name='view_assignment'),
+    url(r'^view_solutions/', teacher.views.view_solutions, name='view_solutions'),
     url(r'^write_report/', teacher.views.write_report, name='write_report'),
     url(r'^submitted_report/', teacher.views.submitted_report, name='submitted_report'),
     url(r'^questions/', teacher.views.question_for_course, name='question_for_course'),
