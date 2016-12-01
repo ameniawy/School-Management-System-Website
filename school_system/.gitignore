@@ -5,3 +5,5 @@ settings.py
 .idea/
 ../.idea/
 **/.idea/
+db.sqlite
+

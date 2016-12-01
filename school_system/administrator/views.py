@@ -118,8 +118,8 @@ def view_applied_students(request):
         View all signed up students
     """
     # username = request.user.get_username()
-    username = "mohabamroo"
-    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE accepted = '0' AND (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s)", (username))
+    username = "meni"
+    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE accepted = '0' OR accepted IS NULL AND (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s)", (username))
 
     data = cur.fetchall()
 
@@ -174,7 +174,7 @@ def view_accepted_students(request):
         View enrolled students
     """
     # username = request.user.get_username()
-    username = "mohabamroo" # TODO:
+    username = "meni" # TODO:
 
     # cur.execute("SELECT c.ssn, c.name, c.birth_date, c.gender, c.age, c.parent_username FROM Students s INNER JOIN Children c ON s.child_ssn = c.ssn WHERE s.username is NULL")
     cur.execute("SELECT e.student_ssn, e.student_id FROM School_enrolled_Student e INNER JOIN Adminstrators a ON e.school_name = a.school_name AND e.school_address = a.school_address WHERE a.username=%s", (username))
@@ -195,14 +195,20 @@ def verify_student(request):
     """
         Verify student and set username and password to them.
     """
-
+    username = "meni"
+    cur.execute("SELECT school_name, school_address FROM Adminstrators WHERE username=%s", (username))
+    data = cur.fetchone()
+    school_name = data[0]
+    school_address = data[1]
     child_ssn = request.POST.get("child_ssn")
-    # child_id = request.POST.get("child_id")
     cur.execute("SELECT name FROM Children WHERE ssn=%s" ,(child_ssn))
     child_name = cur.fetchone()[0]
     child_name = child_name.split()
 
-    username = child_name[0][:2] + '.' + child_name[1]
+    try:
+        username = child_name[0][:2] + '.' + child_name[1]
+    except:
+        username = child_name[0]
     password = 'password'
 
     user = User()
@@ -214,11 +220,13 @@ def verify_student(request):
     type_of_user.type = 'student'
     type_of_user.save()
 
+    cur.execute("SELECT id FROM Students WHERE child_ssn=%s", (child_ssn))
+    student_id = cur.fetchone()[0]
+
     cur.execute("UPDATE Students SET username = %s, password_ = %s WHERE child_ssn = %s", (username, password, child_ssn))
 
-
-    #cur.execute("CALL verifyEnrolledStudent(%s,%s,%s,%s)",
-                #(child_ssn, password, child_ssn))
+    cur.execute("CALL verifyEnrolledStudent(%s,%s,%s,%s)",
+                (child_ssn, student_id,school_name, school_address))
 
 
     db.commit()
@@ -232,7 +240,7 @@ def view_school_info(request):
     Show the school info of the admin
     """
     # username = request.user.get_username()
-    username = "mohabamroo" # HARDCODED AND NEEDS TO BE CHANGED
+    username = "meni" # HARDCODED AND NEEDS TO BE CHANGED
 
     cur.execute("SELECT * FROM Schools WHERE (name, s_address) IN (SELECT school_name, school_address FROM Adminstrators a WHERE a.username =%s)", (username))
     data = cur.fetchone()
