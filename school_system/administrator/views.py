@@ -25,7 +25,7 @@ def index(request):
 
 
 def view_signed_up_teachers(request):
-
+    # username = request.user.get_username()
     username = "meni"  # HARDCODED AND NEEDS TO BE CHANGED
     cur.execute("SELECT first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address, years_of_experience FROM Teachers WHERE (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s) AND username is NULL", (username))
 
@@ -176,8 +176,7 @@ def view_accepted_students(request):
     # username = request.user.get_username()
     username = "meni" # TODO:
 
-    # cur.execute("SELECT c.ssn, c.name, c.birth_date, c.gender, c.age, c.parent_username FROM Students s INNER JOIN Children c ON s.child_ssn = c.ssn WHERE s.username is NULL")
-    cur.execute("SELECT e.student_ssn, e.student_id FROM School_enrolled_Student e INNER JOIN Adminstrators a ON e.school_name = a.school_name AND e.school_address = a.school_address WHERE a.username=%s", (username))
+    cur.execute("SELECT e.student_ssn, e.student_id FROM School_enrolled_Student e INNER JOIN Adminstrators a ON e.school_name = a.school_name AND e.school_address = a.school_address WHERE a.username=%s AND (e.verified = 0 OR e.verified IS NULL) ", (username))
 
     data = cur.fetchall()
 
@@ -211,6 +210,15 @@ def verify_student(request):
         username = child_name[0]
     password = 'password'
 
+    cur.execute("SELECT id FROM Students WHERE child_ssn=%s", (child_ssn))
+    student_id = cur.fetchone()[0]
+
+    cur.execute("UPDATE Students SET username = %s, password_ = %s WHERE child_ssn = %s", (username, password, child_ssn))
+
+    cur.execute("CALL verifyEnrolledStudent(%s,%s,%s,%s)",
+                (child_ssn, school_name, school_address, student_id))
+
+    db.commit()
     user = User()
     user.username = username
     user.set_password(password)
@@ -219,17 +227,6 @@ def verify_student(request):
     type_of_user.user = user
     type_of_user.type = 'student'
     type_of_user.save()
-
-    cur.execute("SELECT id FROM Students WHERE child_ssn=%s", (child_ssn))
-    student_id = cur.fetchone()[0]
-
-    cur.execute("UPDATE Students SET username = %s, password_ = %s WHERE child_ssn = %s", (username, password, child_ssn))
-
-    cur.execute("CALL verifyEnrolledStudent(%s,%s,%s,%s)",
-                (child_ssn, student_id,school_name, school_address))
-
-
-    db.commit()
 
     return view_accepted_students(request)
 

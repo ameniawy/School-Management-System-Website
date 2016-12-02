@@ -1,0 +1,32 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Teacher</title>
+</head>
+<body>
+
+
+<h1>View Assignment Solutions</h1>
+<a href="/teacher/"><h3>Go To Teacher Home</h3></a>
+
+{% for assignment in data %}
+<div class="course">
+
+
+  <p>#{{assignment.ass_num}} || Course: {{assignment.course_code}} || Student: {{assignment.student_id}} || Answerr: {{assignment.answer}}</p>
+    <form form action="/teacher/grade_assignment/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="ass_num" value="{{assignment.ass_num}}" />
+        <input type="hidden" name="course_code" value="{{assignment.course_code}" />
+        <input type="hidden" name="course_code" value="{{assignment.student_id}" />
+        <input type="text" name="ass_grade"  />
+        <input type="submit" value="Grade Assignment" />
+    </form>
+
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>

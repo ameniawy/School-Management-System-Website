@@ -17,6 +17,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
+import account.views
 
 
 urlpatterns = [
@@ -27,6 +28,8 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
 	url(r'^teacher/', include('teacher.urls')),
     url(r'^parent/', include('parent.urls')),
+    # url(r'^logout/$', 'django.contrib.auth.views.logout'),
+    url(r'^$', account.views.index, name='index'),
 
     ]
 

@@ -16,6 +16,6 @@ urlpatterns = [
     url(r'^search/', views.search, name='search'),
     url(r'^login/', views.login_view, name='login_view'),
 
-    url(r'^$', views.index, name='index'),
+    # url(r'^$', views.index, name='index'),
 
 ]

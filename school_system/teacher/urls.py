@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^questions/', teacher.views.question_for_course, name='question_for_course'),
     url(r'^view_questions/', teacher.views.view_questions, name='view_questions'),
     url(r'^view_students/', teacher.views.view_students, name='view_students'),
+    url(r'^post_answer/', teacher.views.post_answer, name='post_answer'),
     # Teacher Home
     url(r'^$', teacher.views.index, name='teacher_index')
 
