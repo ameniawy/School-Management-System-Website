@@ -27,8 +27,9 @@ cur = db.cursor()
 
 
 def index(request):
-    return
+    return   TemplateResponse(request, 'Students/index.html')
 def view_student_info(request):
+	
     return
 
 def update_student_info(request):
