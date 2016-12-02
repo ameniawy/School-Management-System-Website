@@ -3,6 +3,8 @@ import pymysql
 
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth.models import User
+from account.models import user_type
 from django.template.response import TemplateResponse
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
@@ -23,7 +25,7 @@ def index(request):
 
 
 def view_signed_up_teachers(request):
-
+    # username = request.user.get_username()
     username = "meni"  # HARDCODED AND NEEDS TO BE CHANGED
     cur.execute("SELECT first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address, years_of_experience FROM Teachers WHERE (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s) AND username is NULL", (username))
 
@@ -58,6 +60,15 @@ def approve_teacher(request):
     username = first_name[:2] + '.' + last_name
     password = 'password'
 
+    user = User()
+    user.username = username
+    user.set_password(password)
+    user.save()
+    type_of_user = user_type()
+    type_of_user.user = user
+    type_of_user.type = 'teacher'
+    type_of_user.save()
+
     # Get the chosen applied teacher
     cur.execute("SELECT * FROM signedUpTeachers WHERE first_name =%s AND middle_name =%s AND last_name=%s", (first_name, middle_name, last_name))
     record = cur.fetchone()
@@ -70,8 +81,15 @@ def approve_teacher(request):
     school_address = record[8]
     years = record[9]
 
+    # Get type of school (National or International)
+    cur.execute("SELECT s_type FROM Schools WHERE name=%s AND s_address=%s", (school_name, school_address))
+    type = cur.fetchone()[0]
+    salary = 5000
+    if type == 'national':
+        salary = 3000
+
     # Add teacher to Teacher with assigned username and password
-    cur.execute("INSERT INTO Teachers(username, e_password, first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address, years_of_experience) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",(username, password, first_name, middle_name, last_name, birth_date, email, gender, address, school_name, school_address, years))
+    cur.execute("INSERT INTO Teachers(username, e_password, first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address, years_of_experience, salary) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",(username, password, first_name, middle_name, last_name, birth_date, email, gender, address, school_name, school_address, years, salary))
     # Delete teacher from signedUp as he is now signedUp already
     cur.execute("DELETE FROM signedUpTeachers WHERE first_name =%s AND middle_name=%s AND last_name=%s", (first_name, middle_name, last_name))
 
@@ -99,9 +117,9 @@ def view_applied_students(request):
     """
         View all signed up students
     """
-
-    username = "mohabamroo"
-    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE accepted = '0' AND (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s)", (username))
+    # username = request.user.get_username()
+    username = "meni"
+    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE accepted = '0' OR accepted IS NULL AND (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s)", (username))
 
     data = cur.fetchall()
 
@@ -127,8 +145,8 @@ def approve_student(request):
 
     # Accept child application
     cur.execute("UPDATE Child_applied_by_Parent_in_School SET accepted = b%s WHERE child_ssn = %s AND school_name = %s AND school_address = %s", ("1", child_ssn, school_name, school_address))
-    # Create a Student with only the ssn
-    cur.execute("INSERT INTO Students(child_ssn) VALUES(%s)", (child_ssn))
+    # Create a Student with only the ssn TODO: FAWZY's PART
+    # cur.execute("INSERT INTO Students(child_ssn) VALUES(%s)", (child_ssn))
 
     db.commit()
 
@@ -153,23 +171,20 @@ def reject_student(request):
 
 def view_accepted_students(request):
     """
-        View accepted students
+        View enrolled students
     """
+    # username = request.user.get_username()
+    username = "meni" # TODO:
 
-    username = "mohabamroo"
+    cur.execute("SELECT e.student_ssn, e.student_id FROM School_enrolled_Student e INNER JOIN Adminstrators a ON e.school_name = a.school_name AND e.school_address = a.school_address WHERE a.username=%s AND (e.verified = 0 OR e.verified IS NULL) ", (username))
 
-    cur.execute("SELECT c.ssn, c.name, c.birth_date, c.gender, c.age, c.parent_username FROM Students s INNER JOIN Children c ON s.child_ssn = c.ssn WHERE s.username is NULL")
     data = cur.fetchall()
 
     all_data = []
     for record in data:
         data_dict = {}
         data_dict['child_ssn'] = record[0]
-        data_dict['child_name'] = record[1]
-        data_dict['birth_date'] = record[2]
-        data_dict['gender'] = record[3]
-        data_dict['age'] = record[4]
-        data_dict['parent_username'] = record[5]
+        data_dict['child_id'] = record[1]
         all_data.append(data_dict)
 
     return TemplateResponse(request, 'administrator/view_accepted_students.html', {"data": all_data})
@@ -179,22 +194,39 @@ def verify_student(request):
     """
         Verify student and set username and password to them.
     """
-
+    username = "meni"
+    cur.execute("SELECT school_name, school_address FROM Adminstrators WHERE username=%s", (username))
+    data = cur.fetchone()
+    school_name = data[0]
+    school_address = data[1]
     child_ssn = request.POST.get("child_ssn")
-    child_name = request.POST.get("child_name").strip()
+    cur.execute("SELECT name FROM Children WHERE ssn=%s" ,(child_ssn))
+    child_name = cur.fetchone()[0]
     child_name = child_name.split()
 
-    username = child_name[0][:2] + '.' + child_name[1]
+    try:
+        username = child_name[0][:2] + '.' + child_name[1]
+    except:
+        username = child_name[0]
     password = 'password'
+
+    cur.execute("SELECT id FROM Students WHERE child_ssn=%s", (child_ssn))
+    student_id = cur.fetchone()[0]
 
     cur.execute("UPDATE Students SET username = %s, password_ = %s WHERE child_ssn = %s", (username, password, child_ssn))
 
-
-    #cur.execute("CALL verifyEnrolledStudent(%s,%s,%s,%s)",
-                #(child_ssn, password, child_ssn))
-
+    cur.execute("CALL verifyEnrolledStudent(%s,%s,%s,%s)",
+                (child_ssn, school_name, school_address, student_id))
 
     db.commit()
+    user = User()
+    user.username = username
+    user.set_password(password)
+    user.save()
+    type_of_user = user_type()
+    type_of_user.user = user
+    type_of_user.type = 'student'
+    type_of_user.save()
 
     return view_accepted_students(request)
 
@@ -204,7 +236,8 @@ def view_school_info(request):
     TODO: NOT FINISHED STILL NEED TO GET USERNAME OF LOGGED IN ADMIN
     Show the school info of the admin
     """
-    username = "mohabamroo" # HARDCODED AND NEEDS TO BE CHANGED
+    # username = request.user.get_username()
+    username = "meni" # HARDCODED AND NEEDS TO BE CHANGED
 
     cur.execute("SELECT * FROM Schools WHERE (name, s_address) IN (SELECT school_name, school_address FROM Adminstrators a WHERE a.username =%s)", (username))
     data = cur.fetchone()
@@ -255,6 +288,7 @@ def post_announcement(request):
     if request.method == 'GET':
         return TemplateResponse(request, 'administrator/post_announcement.html')
 
+    # username = request.user.get_username()
     username = "mohabamroo"  # HARDCODED AND NEEDS TO BE CHANGED
 
     # Now get the admin's id number
@@ -276,7 +310,7 @@ def create_activity(request):
     """
         Show creation page or create activity with passed attributes.
     """
-
+    # username = request.user.get_username()
     username = "mohabamroo"  # HARDCODED AND NEEDS TO BE CHANGED
 
     if request.method == 'GET':
@@ -312,7 +346,7 @@ def assign_teacher_to_course(request):
     """
         Show assigning page for teacher to course. Or create the relation
     """
-
+    # username = request.user.get_username()
     username = "mohabamroo"
 
     if request.method == 'GET':

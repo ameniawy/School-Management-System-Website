@@ -17,7 +17,13 @@
 
       <p>Num: {{question.q_number}} || Course: {{question.course_code}} || Student ID: {{question.student_id}}
         || Question: {{question.question}} || Date: {{question.q_date}} || Answer: {{question.answer}} </p>
-
+      <form form action="/teacher/post_answer/" method="post">
+          {% csrf_token %}
+          <input type="hidden" name="q_number" value="{{question.q_number}}" />
+          <input type="hidden" name="course_code" value="{{question.course_code}" />
+          <input type="text" name="answer" />
+          <input type="submit" value="Post Answer" />
+      </form>
     </div>
     <hr>
     {% endfor %}
