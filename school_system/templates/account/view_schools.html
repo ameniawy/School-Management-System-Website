@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User</title>
+</head>
+<body>
+
+
+<h1>All Schools</h1>
+<a href="/account/"><h3>Go To Home</h3></a>
+
+{% for school in schools %}
+<div class="school">
+	<p> School Level: {{school.level}} || School Name: {{school.name}} || School Address: {{school.address}} </p>
+	<form form action="/account/view_school_info/" method="post">
+		{% csrf_token %}
+		<input type="hidden" name="school_name" value={{school.name}} />
+		<input type="hidden" name="school_address" value={{school.address}} />
+
+		<input type="submit" value="View {{school.name}}'s Information " />
+	</form>
+
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>
