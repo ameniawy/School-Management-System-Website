@@ -1,10 +1,10 @@
-
+# Author: Abdelrahman M.
 import pymysql
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.contrib.auth import authenticate
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template.response import TemplateResponse
 from .models import user_type
 from django.conf import settings
@@ -25,7 +25,7 @@ cur = db.cursor()
 
 
 def index(request):
-    return TemplateResponse(request, 'account/index.html')
+    return TemplateResponse(request, 'main/index.html')
 
 
 def login_view(request):
@@ -40,13 +40,21 @@ def login_view(request):
             password = form.cleaned_data.get("password")
             newUser = authenticate(username=username, password=password)
             login(request, newUser)
-            type = get_object_or_404(user_type, user = newUser).type
-            # TODO: Check on type and return a specific page accordingly
+            type = get_object_or_404(user_type, user=newUser).type
+            # Login for 4 types of users (Teacher, Admin, Student, Parent)
+            url = "/administrator/"
+            if type == 'teacher':
+                url = "/teacher/"
+            elif type == 'student':
+                url = "/student/"
+            elif type == 'parent':
+                url = "/parent/home/"
 
-            return HttpResponse(type) # TODO: CHANGEEEEE!
+            return HttpResponseRedirect(url)
+
         else:
-            messages.error(request,"Something went wrong")
-    return render(request ,"account/login_form.html" ,{"form": form})
+            messages.error(request, "Something went wrong")
+    return render(request, "account/login_form.html", {"form": form})
 
 
 def register_parent(request):
@@ -168,14 +176,40 @@ def view_school_info(request):
         rev['review'] = review[1]
         all_reviews.append(rev)
 
+    # TODO: How can i get announcements of a certain school?
+
     return TemplateResponse(request, 'account/view_school_info.html', {"school": school, "reviews": all_reviews})
 
 
+def search(request):
+    """
+        Search for any school by its name, address or its type (national/international).
+    """
 
+    if request.method == 'GET':
+        return TemplateResponse(request, 'account/search.html')
 
+    school_name = request.POST.get("school_name")
+    school_address = request.POST.get("school_address")
+    type = request.POST.get("type")
 
+    cur.execute("SELECT * FROM Schools WHERE name=%s OR s_address=%s OR s_type=%s", (school_name, school_address, type))
+    data = cur.fetchall()
 
+    schools = []
 
+    for school_info in data:
+        school = {}
+        school['name'] = school_info[0]
+        school['address'] = school_info[1]
+        school['phone_number'] = school_info[2]
+        school['email'] = school_info[3]
+        school['information'] = school_info[4]
+        school['vision'] = school_info[5]
+        school['mission'] = school_info[6]
+        school['language'] = school_info[7]
+        school['fees'] = school_info[8]
+        school['type'] = school_info[9]
+        schools.append(school)
 
-
-
+    return TemplateResponse(request, 'account/view_schools.html', {"schools": schools})

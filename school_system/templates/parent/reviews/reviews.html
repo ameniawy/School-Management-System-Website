@@ -1,0 +1,41 @@
+{% extends "../index.html" %}
+{% block content %}
+{% for review in reviews %}
+
+<div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{{review.parent_username}}</span>
+               <div>{{review.school_name}}</div>
+              <p>{{review.review}}</p>
+            </div>
+            <div class="card-action">
+              <div>
+                                   <div class="row">
+                    <form class="col s12" action="{% url 'parent:delete_review' %}" method="POST">
+                                    {%csrf_token%}
+
+                      <div class="row">
+
+                        <div class="input-field col s12">
+                             <input type="text" name="school_name" value="{{review.school_name}}" hidden>
+                            <input type="text" name="school_address" value="{{review.school_address}}" hidden>
+                        </div>
+                      </div>
+                      <input type="submit" value="Delete" class="waves-effect waves-light btn" style="background-color:#ff1744 !important">
+
+                    </form>
+                  </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+{% endfor %}
+{% endblock %}

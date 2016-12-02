@@ -1,0 +1,39 @@
+{% extends "../index.html" %}
+{% block content %}
+<table>
+        <thead>
+          <tr>
+              <th data-field="id">Name</th>
+              <th data-field="name">Rating</th>
+              <th data-field="price">Rate the teacher out of 10</th>
+          </tr>
+        </thead>
+
+        <tbody>
+{% for teacher in teachers %}
+<td>{{teacher.name}}</td>
+    {% if teacher.rating %}
+            <td>{{teacher.rating}}</td>
+    {% else %}
+    <td>Unknown</td>
+    {% endif %}
+        <td>
+            <form action="{%  url 'parent:parent_rate' %}" method="POST">
+                {%csrf_token%}
+    <p class="range-field" width="100px">
+
+        <input type="text"  name="teacher_id" value="{{teacher.id}}" hidden />
+        <input type="range" id="test5" min="0" max="10" style='width:200px' name="rating" />
+        <input type="submit" value="done" class="waves-effect waves-light btn">
+    </p>
+  </form>
+        </td>
+
+
+
+{% endfor %}
+
+</tbody>
+      </table>
+
+{% endblock content %}

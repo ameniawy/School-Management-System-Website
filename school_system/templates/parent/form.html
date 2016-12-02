@@ -1,0 +1,8 @@
+<form action="{% url 'parent:parent_write' %}" method="POST">
+    {% csrf_token %}
+    <input type="text" name="school_name">
+    <input type="text" name="school_address">
+    <input type="text" name="review">
+    <input type="submit" name="submit">
+
+</form>
