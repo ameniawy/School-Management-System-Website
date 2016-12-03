@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      View Questions
+    </title>
+  </head>
+
+  <body>
+
+    {% for assignment in data %}
+    <div class="assignmnet">
+
+      <p>Num: {{assignmnet.a_number}} || Course: {{assignment.course_code}} || CONTENT: {{assignment.content}}
+        || Due_date: {{assignment.due_date}} || POST_date: {{assignment.post_dat}} || TEACHER ID: {{assignment.teacher_id}} </p>
+      
+    </div>
+    <hr>
+    {% endfor %}
+  </body>
+
+</html>

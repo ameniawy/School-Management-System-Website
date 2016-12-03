@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      View ACTIVITIES
+    </title>
+  </head>
+
+  <body>
+
+    {% for activity in data %}
+    <div class="activity">
+
+      <p>ac_date: {{activity.ac_date}} || location: {{activity.location}} || ac_type: {{activity.ac_type}}
+        || equipment: {{activity.equipment}} || ac_description: {{activity.ac_description}} || TEACHER ID: {{activity.teacher_id}} </p>
+      
+    </div>
+    <hr>
+    {% endfor %}
+  </body>
+
+</html>

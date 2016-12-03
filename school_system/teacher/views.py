@@ -23,6 +23,7 @@ def index(request):
 # 1 View a list of courses names taught by him/her, listed based on their level then their grade.
 
 
+
 def view_courses(request):
     teacher_id = 3
     #cur.execute("SELECT * FROM Schools WHERE (name, s_address) IN (SELECT school_name, school_address FROM Adminstrators a WHERE a.username =%s)", (username))
