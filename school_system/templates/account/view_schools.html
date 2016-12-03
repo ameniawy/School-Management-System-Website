@@ -1,14 +1,9 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>User</title>
-</head>
-<body>
+{% extends "account/index.html" %}
+{% block content %}
 
 
 <h1>All Schools</h1>
-<a href="/"><h3>Go To Home</h3></a>
 
 {% for school in schools %}
 <div class="school">
@@ -18,12 +13,11 @@
 		<input type="hidden" name="school_name" value={{school.name}} />
 		<input type="hidden" name="school_address" value={{school.address}} />
 
-		<input type="submit" value="View {{school.name}}'s Information " />
+		<input type="submit" value="View {{school.name}}'s Information" class="waves-effect waves-light btn" />
 	</form>
 
 </div>
 <hr>
 {% endfor %}
 
-</body>
-</html>
+{% endblock %}

@@ -25,7 +25,8 @@ cur = db.cursor()
 
 
 def index(request):
-    return TemplateResponse(request, 'main/index.html')
+    # return TemplateResponse(request, 'main/index.html')
+    return login_view(request)
 
 
 def login_view(request):
@@ -177,8 +178,19 @@ def view_school_info(request):
         all_reviews.append(rev)
 
     # TODO: How can i get announcements of a certain school?
+    cur.execute("SELECT * FROM Announcements a WHERE a.admin_id IN (SELECT id FROM Adminstrators ad WHERE ad.school_name=%s AND ad.school_address=%s)", (school_name, school_address))
+    data_2 = cur.fetchall()
+    all_ann = []
+    for ann in data_2:
+        anno = {}
+        anno['id'] = ann[0]
+        anno['title'] = ann[1]
+        anno['description'] = ann[2]
+        anno['date'] = ann[3]
+        anno['type'] = ann[4]
+        all_ann.append(anno)
 
-    return TemplateResponse(request, 'account/view_school_info.html', {"school": school, "reviews": all_reviews})
+    return TemplateResponse(request, 'account/view_school_info.html', {"school": school, "reviews": all_reviews, "announcements": all_ann})
 
 
 def search(request):

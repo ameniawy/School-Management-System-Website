@@ -1,13 +1,8 @@
+{% extends "administrator/index.html" %}
+{% block content %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Administrator</title>
-</head>
-<body>
+<h3>Edit School Info</h3>
 
-<h1>Edit School Info</h1>
-<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
 
 <div class="teacher">
     <form form action="/administrator/edit_school_info/" method="post">
@@ -38,11 +33,10 @@
 
 
 
-        <input type="submit" value="Save Changes" />
+        <input type="submit" value="Save Changes" class="waves-effect waves-light btn" />
+        <br><br><br><br>
     </form>
 
 </div>
 
-
-</body>
-</html>
+{% endblock %}

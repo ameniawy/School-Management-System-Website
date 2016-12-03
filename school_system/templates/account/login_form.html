@@ -1,23 +1,17 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Login</title>
-</head>
-<body>
+{% extends "account/index.html" %}
+{% block content %}
 
-<h1>Login Ussr</h1>
-<a href="/"><h3>Go To Home</h3></a>
+<h1>Login User</h1>
 
 <div class="teacher">
     <form form action="/account/login/" method="post">
         {% csrf_token %}
         {{form}}
-        <input type="submit" value="Login" />
+        <input type="submit" value="Login" class="waves-effect waves-light btn" />
     </form>
 
 </div>
 
 
-</body>
-</html>
+{% endblock %}
