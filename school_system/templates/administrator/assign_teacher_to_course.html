@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator</title>
+</head>
+<body>
+
+<h1>Assign Teacher To Course</h1>
+<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
+<div class="teacher">
+    <form form action="/administrator/assign_teacher_to_course/" method="post">
+        {% csrf_token %}
+        <p>Teacher:</p>
+        <select name="teacher_id">
+            {% for teacher in data %}
+            <option value="{{teacher.id}}">{{teacher.username}}</option>
+
+            {% endfor %}
+        </select>
+
+        <p>Course:</p>
+        <select name="course_code">
+            {% for course in courses %}
+            <option value="{{course}}">{{course}}</option>
+
+            {% endfor %}
+        </select>
+
+
+        <input type="submit" value="Add Teacher To Course" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

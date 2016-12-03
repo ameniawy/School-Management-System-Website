@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator</title>
+</head>
+<body>
+
+<h1>Edit School Info</h1>
+<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
+<div class="teacher">
+    <form form action="/administrator/edit_school_info/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="original_school_name" value="{{data.school_name}}" />
+        <input type="hidden" name="original_school_address" value="{{data.school_address}}" />
+
+
+        <p>School Name: {{data.school_name}}</p>
+        <p>School Address: {{data.school_address}}</p>
+
+        <p>Phone Number:</p>
+        <input type="text" name="phone_number" value="{{data.phone_number}}" />
+        <p>Email:</p>
+        <input type="text" name="email" value="{{data.email}}" />
+        <p>School Information:</p>
+        <input type="text" name="information" value="{{data.information}}" />
+        <p>School Vision:</p>
+        <input type="text" name="vision" value="{{data.vision}}" />
+        <p>School Mission:</p>
+        <input type="text" name="mission" value="{{data.mission}}" />
+        <p>Main Language:</p>
+        <input type="text" name="language" value="{{data.language}}" />
+        <p>School Fess:</p>
+        <input type="text" name="fees" value="{{data.fees}}" />
+        <p>School Type:</p>
+        <input type="text" name="type" value="{{data.type}}" />
+
+
+
+        <input type="submit" value="Save Changes" />
+    </form>
+
+</div>
+
+
+</body>
+</html>

@@ -12,9 +12,7 @@ db.set_charset('utf8mb4')
 cur = db.cursor()
 
 
-
-
-def  home(request):
+def home(request):
     unkown_user = 'mhmd'
     cur.execute("SELECT name, s_address, s_type FROM Schools")
     data = cur.fetchall()

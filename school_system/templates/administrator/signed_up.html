@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Administrator</title>
+</head>
+<body>
+
+
+<h1>Review Teacher Applicants</h1>
+<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
+{% for teacher in data %}
+<div class="teacher">
+	<p>Full Name: {{teacher.first_name}}  {{teacher.middle_name}}  {{teacher.last_name}} || Birth Date: {{teacher.birth_date}} || Email: {{teacher.email}} || Address: {{teacher.e_address}} || Gender: {{teacher.gender}} || School: {{teacher.school_name}} || School Address: {{teacher.school_address}}</p>
+    <form form action="/administrator/approve/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="first_name" value={{teacher.first_name}} />
+        <input type="hidden" name="middle_name" value={{teacher.middle_name}} />
+        <input type="hidden" name="last_name" value={{teacher.last_name}} />
+        <input type="submit" value="Approve {{teacher.first_name}}'s Application" />
+    </form>
+
+    <form form action="/administrator/reject_teacher/" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="first_name" value={{teacher.first_name}} />
+        <input type="hidden" name="middle_name" value={{teacher.middle_name}} />
+        <input type="hidden" name="last_name" value={{teacher.last_name}} />
+        <input type="submit" value="Reject {{teacher.first_name}}'s Application" />
+    </form>
+</div>
+<hr>
+{% endfor %}
+
+</body>
+</html>
