@@ -1,14 +1,9 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>User</title>
-</head>
-<body>
+{% extends "account/index.html" %}
+{% block content %}
 
 
 <h1>All Schools</h1>
-<a href="/"><h3>Search For Schools</h3></a>
 
 
 <div class="school">
@@ -21,12 +16,10 @@
         <p>School Type:</p>
         <input type="text" name="type" />
 
-		<input type="submit" value="Search for school" />
+		<input type="submit" value="Search for school" class="waves-effect waves-light btn" />
 	</form>
 
 </div>
 <hr>
 
-
-</body>
-</html>
+{% endblock %}

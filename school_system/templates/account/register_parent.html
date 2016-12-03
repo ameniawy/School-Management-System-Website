@@ -1,13 +1,9 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Register</title>
-</head>
-<body>
+{% extends "account/index.html" %}
+{% block content %}
 
 <h1>Register as a Parent</h1>
-<a href="/"><h3>Go To Home</h3></a>
+
 
 <div class="teacher">
     <form form action="/account/register_parent/" method="post">
@@ -27,13 +23,9 @@
         <p>Phone Number:</p>
         <input type="text" name="phone_number"/>
 
-        <p>Course:</p>
-
-        <input type="submit" value="Add Teacher To Course" />
+        <input type="submit" value="Register" class="waves-effect waves-light btn" />
     </form>
 
 </div>
 
-
-</body>
-</html>
+{% endblock %}

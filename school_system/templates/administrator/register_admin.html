@@ -1,0 +1,27 @@
+
+{% extends "administrator/index.html" %}
+{% block content %}
+
+<h1>Register as an admin</h1>
+
+
+<div class="teacher">
+    <form form action="/administrator/register_admin/" method="post">
+        {% csrf_token %}
+        <p>Username:</p>
+        <input type="text" name="username"/>
+        <p>Password:</p>
+        <input type="password" name="password"/>
+        <p>Birth Date (YYYY-MM-DD):</p>
+        <input type="text" name="birth_date"/>
+        <p>School Name:</p>
+        <input type="text" name="school_name"/>
+        <p>School Address:</p>
+        <input type="text" name="school_address"/>
+
+        <input type="submit" value="Admin Register" class="waves-effect waves-light btn" />
+    </form>
+
+</div>
+
+{% endblock %}
