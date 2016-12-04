@@ -182,6 +182,35 @@ def join_activities(request):
      return
 def view_grades_assignment_course(request):
 
+    username = "honda"
+    cur.execute("SELECT id FROM Students WHERE username=%s", (username))
+    student_id = cur.fetchone()
+    if request.method == 'GET':
+        return TemplateResponse(request, 'Students/assignmentgraded_form.html')
+    code = request.POST.get('course_code')
+
+    cur.execute("CALL ViewGradedAssignments(%s,%s)",(student_id,code))
+    data = cur.fetchall()
+    
+
+    
+    all_data = []
+    for record in data:
+        data_dict = {}
+        data_dict['ass_number'] = record[0]
+        data_dict['course_code'] = record[1]
+        data_dict['student_id'] = record[2]
+        data_dict['answer'] = record[3]
+        data_dict['grade'] = record[4]
+        
+        all_data.append(data_dict)
+       
+
+    return TemplateResponse(request, 'Students/assignmentsgrades.html', {"data": all_data})
+    
+
+
+
      return
 def view_clubs(request):
     username = "honda"
