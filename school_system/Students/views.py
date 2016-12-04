@@ -131,14 +131,39 @@ def view_assignments_course(request):
     return TemplateResponse(request, 'Students/assignments.html', {"data": all_data})
     
 def submit_assignment_course(request):
-	return
+    username = "honda"
+    exec1 = "insert into Assignment_solved_by_Student(ass_number, course_code,student_id, answer) values(%s, %s, %s, %s);"
+    cur.execute("SELECT id FROM Students WHERE username=%s", (username))
+    student_id = cur.fetchone()
+
+    if request.method == 'GET':
+        return TemplateResponse(request, 'Students/assignmentsubmission_form.html')
+    
+    ass_number=request.POST.get('ass_number')
+    code = request.POST.get('course_code')
+    answer = request.POST.get('answer')
+    cur.execute(exec1,(ass_number,code,student_id,answer))
+    db.commit()
+       
+
+    return  HttpResponse('done')
+
+
+
+
+
+
+	
 def view_activities(request):
     
     username = "honda"
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()
-    cur.execute("CALL studentViewactivites(%s)",(student_id))
+    cur.execute("CALL studentViewactivites2(%s)",(student_id))
     data = cur.fetchall()
+    print('data')
+
+    print(data)
     all_data = []
     for record in data:
         data_dict = {}
