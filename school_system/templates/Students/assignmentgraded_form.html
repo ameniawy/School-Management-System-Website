@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      View Questions
+    </title>
+  </head>
+
+  <body>
+    <form name="questions" action="/Students/view_allquestion_course/" method="POST">
+      {% csrf_token %}
+      Course Code: <input type="text" name="course_code" >
+      <input type="submit" value="Submit">
+    </form>
+
+  </body>
+
+</html>

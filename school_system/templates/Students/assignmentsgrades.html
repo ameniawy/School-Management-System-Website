@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      VIEW GRADE OF AN ASSIGNMENT
+    </title>
+  </head>
+
+  <body>
+
+    {% for assignmentgrades in data %}
+    <div class="assignmnetgrades">
+
+      <p>ASSIGNMENT NUMBER: {{assignmnetgrades.ass_number}} || Course: {{assignment.course_code}} || STUDENT_ID: {{assignmentgrades.student_id}}
+        || ANSWER: {{assignmentgrades.answer}} || GRADE: {{assignmentgrades.grade}}  </p>
+      
+    </div>
+    <hr>
+    {% endfor %}
+  </body>
+
+</html>

@@ -28,6 +28,8 @@ urlpatterns = [
     url(r'^account/', include('account.urls')),
 	url(r'^teacher/', include('teacher.urls')),
     url(r'^parent/', include('parent.urls')),
+    url(r'^Students/', include('Students.urls')),
+
     # url(r'^logout/$', 'django.contrib.auth.views.logout'),
     url(r'^$', account.views.index, name='index'),
 
