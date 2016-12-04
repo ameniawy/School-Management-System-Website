@@ -159,9 +159,32 @@ def view_grades_assignment_course(request):
 
      return
 def view_clubs(request):
+    username = "honda"
+    cur.execute("SELECT id FROM Students WHERE username=%s", (username))
+    student_id = cur.fetchone()
+    cur.execute("CALL viewClubsInMySchool(%s)",(student_id))
+    data = cur.fetchall()
+    all_data = []
+    for record in data:
+        data_dict = {}
+        data_dict['club_name'] = record[0]
+        
+        
+        all_data.append(data_dict)
+       
+
+    
+     
+
+    
+    
+     
+
+
+    return TemplateResponse(request, 'Students/clubs.html', {"data": all_data})
     
 
-     return
+    
 def join_clubs(request):
     return
 
