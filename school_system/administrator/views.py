@@ -1,5 +1,6 @@
 # Author: Abdelrahman M.
 import pymysql
+import datetime
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -333,7 +334,7 @@ def post_announcement(request):
     # Fetch remaining attributes
     title = request.POST.get("title")
     description = request.POST.get("description")
-    date = request.POST.get("date")
+    date = datetime.datetime.today().strftime('%Y-%m-%d')
     type = request.POST.get("type")
 
     cur.execute("INSERT INTO Announcements(title, description_, an_date, type_, admin_id) VALUES(%s,%s,%s,%s,%s)",(title, description, date, type, id_))
