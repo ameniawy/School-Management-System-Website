@@ -21,17 +21,24 @@ cur = db.cursor()
 def index(request):
     return   TemplateResponse(request, 'Students/index.html')
 def view_student_info(request):
-	
-    return
-
-def update_student_info(request):
-    return
-
-def view_student_courses(request):
     username = "honda"
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
-    student_id = cur.fetchone()[0]
+    student_id = cur.fetchone()
+    cur.exexute("SELECT * FROM Students s inner join children c on s.ssn=c.ssn where s.id=%s ",(student_id))
+    data = cur.fetchall()
+    all_data = []
+    for record in data:
+        data_dict = {}
+        data_dict['id'] = record[0]
+        data_dict['course_code'] = record[1]
+        data_dict['student_id'] = record[2]
+        data_dict['q_date'] = record[3]
+        data_dict['question'] = record[4]
+        data_dict['answer'] = record[5]
+        all_data.append(data_dict)
+       
 
+    
      
 
     
@@ -40,6 +47,38 @@ def view_student_courses(request):
 
 
     return 
+    
+
+def update_student_info(request):
+    return
+
+def view_student_courses(request):
+    username = "honda"
+    cur.execute("SELECT id FROM Students WHERE username=%s", (username))
+    student_id = cur.fetchone()
+    cur.execute("CALL viewAllCoursesItake(%s)",(student_id))
+    data = cur.fetchall()
+    all_data = []
+    for record in data:
+        data_dict = {}
+        data_dict['code'] = record[0]
+        data_dict['name'] = record[1]
+        data_dict['c_level'] = record[2]
+        data_dict['description_'] = record[3]
+        data_dict['grade_code'] = record[4]
+        
+        all_data.append(data_dict)
+       
+
+    
+     
+
+    
+    
+     
+
+
+    return TemplateResponse(request, 'Students/courses.html', {"data": all_data})
     
 def post_question_per_course(request):
     return

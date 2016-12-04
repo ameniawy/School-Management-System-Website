@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      View COURSES
+    </title>
+  </head>
+
+  <body>
+
+    {% for course in data %}
+    <div class="course">
+
+      <p>COURSE CODE: {{course.code}} || COURSE NAME: {{course.name}} || COURSE LEVEL: {{course.c_level}}
+        || COURSE DESCRIPTION: {{course.description}} || COURSE GRADE CODE: {{course.grade_code}}  </p>
+      
+    </div>
+    <hr>
+    {% endfor %}
+  </body>
+
+</html>
