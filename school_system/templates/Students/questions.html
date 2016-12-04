@@ -1,0 +1,22 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      View Questions
+    </title>
+  </head>
+
+  <body>
+
+    {% for question in data %}
+    <div class="question">
+
+      <p>Num: {{question.q_number}} || Course: {{question.course_code}} || Student ID: {{question.student_id}}
+        || Question: {{question.question}} || Date: {{question.q_date}} || Answer: {{question.answer}} </p>
+      
+    </div>
+    <hr>
+    {% endfor %}
+  </body>
+
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      View ACTIVITIES
+    </title>
+  </head>
+
+  <body>
+
+    {% for activity in data %}
+    <div class="activity">
+
+      <p>ac_date: {{activity.ac_date}} || location: {{activity.location}} || ac_type: {{activity.ac_type}}
+        || equipment: {{activity.equipment}} || ac_description: {{activity.ac_description}} || TEACHER ID: {{activity.teacher_id}} </p>
+
+    <form name="questions" action="/Students/join_activities/" method="POST">
+      {% csrf_token %}
+        Question: <input type="text" name="question" >
+        <input type="hidden" name="activity_date" value="{{ activity.ac_date }}" />
+        <input type="hidden" name="activity_location" value="{{ activity.location }}" />
+        <input type="hidden" name="activity_type" value="{{activity.ac_type}}" />
+
+      <input type="submit" value="Join Activity">
+    </form>
+
+    </div>
+    <hr>
+    {% endfor %}
+  </body>
+
+</html>

@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Assignment submission</title>
+</head>
+<body>
+
+<h1> Submit an assignment</h1>
+
+
+<div class="teacher">
+    <form form action="/Students/submit_assignment_course/" method="post">
+        {% csrf_token %}
+
+        <p>COURSE CODE:</p>
+        <input type="text" name="course_code"/>
+        <p>ass_number:</p>
+        <input type="text" name="ass_number" />
+        <p>Answer:</p>
+        <input type="text" name="answer"  />
+        
+
+        
+
+
+        <input type="submit" value="SUBMIT AN ASSIGNMENT" />
+    </form>
+
+</div>
