@@ -1,32 +1,40 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      View Questions
-    </title>
-  </head>
+{% extends "teacher/index.html" %}
+{% block content %}
 
-  <body>
-    <form name="questions" action="/teacher/view_questions" method="get">
-      Course Code: <input type="text" name="course_code" value="">
-      <input type="submit" value="Submit">
-    </form>
+<h1 style="text-align: center">View Questions</h1>
+<form name="questions" action="/teacher/view_questions" method="get">
+  Course Code: <input type="text" name="course_code" value="" placeholder="Course Code Here...">
+  <input type="submit" value="Submit" class="waves-effect waves-light btn" >
+</form>
 
-    {% for question in data %}
-    <div class="question">
-
-      <p>Num: {{question.q_number}} || Course: {{question.course_code}} || Student ID: {{question.student_id}}
-        || Question: {{question.question}} || Date: {{question.q_date}} || Answer: {{question.answer}} </p>
-      <form form action="/teacher/post_answer/" method="post">
-          {% csrf_token %}
-          <input type="hidden" name="q_number" value="{{question.q_number}}" />
-          <input type="hidden" name="course_code" value="{{question.course_code}" />
-          <input type="text" name="answer" />
-          <input type="submit" value="Post Answer" />
-      </form>
+{% for question in data %}
+<div class="question">
+  <div class="col s12 m6">
+    <div class="card blue-grey darken-1">
+      <div class="card-content white-text">
+        <span class="card-title">Num: {{question.q_number}}</span>
+        <br>
+        <span class="card-title">Course: {{question.course_code}}</span>
+        <br>
+        <span class="card-title">Student ID: {{question.student_id}}</span>
+        <br>
+        <span class="card-title">Question: {{question.question}}</span>
+        <br>
+        <span class="card-title">Date: {{question.q_date}}</span>
+        <br>
+        <span class="card-title">Answer: {{question.answer}}</span>
+      </div>
     </div>
-    <hr>
-    {% endfor %}
-  </body>
+  </div>
+  <form form action="/teacher/post_answer/" method="post">
+      {% csrf_token %}
+      <input type="hidden" name="q_number" value="{{question.q_number}}" />
+      <input type="hidden" name="course_code" value="{{question.course_code}}" />
+      <input type="text" name="answer" placeholder="Write Answer here..." />
+      <input type="submit" value="Post Answer" class="waves-effect waves-light btn" />
+  </form>
+</div>
+<hr>
+{% endfor %}
 
-</html>
+{% endblock %}

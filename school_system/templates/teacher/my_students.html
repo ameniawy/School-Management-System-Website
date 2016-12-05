@@ -1,21 +1,21 @@
+{% extends "teacher/index.html" %}
+{% block content %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>My Students</title>
-</head>
-<body>
-
-<a href="/teacher/"><h3>Go To Teacher Home</h3></a>
+<h1 style="text-align: center">View Students</h1>
 
 {% for student in data %}
 <div class="students">
-
-  <p>StudentID: {{student.id}} || Username: {{student.username}}</p>
-
+	<div class="col s12 m6">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<span class="card-title">StudentID: {{student.id}}</span>
+				<br>
+				<span class="card-title">Username: {{student.username}}</span>
+			</div>
+		</div>
+	</div>
 </div>
 <hr>
 {% endfor %}
 
-</body>
-</html>
+{% endblock %}

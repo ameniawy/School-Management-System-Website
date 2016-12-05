@@ -1,22 +1,15 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      View Questions
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
 
     {% for question in data %}
-    <div class="question">
+    <div class="review">
 
-      <p>Num: {{question.q_number}} || Course: {{question.course_code}} || Student ID: {{question.student_id}}
-        || Question: {{question.question}} || Date: {{question.q_date}} || Answer: {{question.answer}} </p>
+     <strong>Num:</strong>  {{question.q_number}}<br> <br> <strong>Course:</strong> {{question.course_code}} <br> <br> <strong>Student ID: </strong>{{question.student_id}}
+       <br> <br> <strong>Question:</strong> {{question.question}} <br> <br> <strong> Date: </strong>  {{question.q_date}}<br> <br> <strong> Date: </strong>    {{question.answer}}
       
     </div>
     <hr>
     {% endfor %}
-  </body>
 
-</html>
+{% endblock %}

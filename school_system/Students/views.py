@@ -20,16 +20,16 @@ cur = db.cursor()
 
 
 def index(request):
-    return TemplateResponse(request, 'Students/index.html')
+    return view_student_info(request)
 
 
 def view_student_info(request):
-    username = "honda"
-    #username = request.user.get_username()
+    #username = "honda"
+    username = request.user.get_username()
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()[0]
-    cur.exexute("SELECT c.ssn, c.name, c.birth_date, c.gender, c.age, c.parent_username, s.username FROM Students s inner join children c on s.ssn=c.ssn where s.id=%s ",(student_id))
-    record = cur.fetchone()[0]
+    cur.execute("SELECT c.ssn, c.name, c.birth_date, c.gender, c.age, c.parent_username, s.username FROM Students s inner join Children c on s.child_ssn=c.ssn where s.id=%s ",(student_id))
+    record = cur.fetchone()
 
     data_dict = {}
     data_dict['ssn'] = record[0]
@@ -44,12 +44,23 @@ def view_student_info(request):
     
 
 def update_student_info(request):
-    return
+
+    ssn = request.POST.get("ssn")
+    name = request.POST.get("name")
+    gender = request.POST.get("gender")
+    birth_date = request.POST.get("birth_date")
+    if birth_date == '':
+        cur.execute("UPDATE Children SET name=%s, gender=%s WHERE ssn=%s", (name, gender, ssn))
+    else:
+        cur.execute("UPDATE Children SET name=%s, gender=%s, birth_date=%s WHERE ssn=%s", (name, gender, birth_date, ssn))
+    db.commit()
+
+    return view_student_info(request)
 
 
 def view_student_courses(request):
-    username = "honda"
-    # username = request.user.get_username()
+    #username = "honda"
+    username = request.user.get_username()
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()[0]
     cur.execute("CALL viewAllCoursesItake(%s)", (student_id))
@@ -130,8 +141,8 @@ def submit_assignment_course(request):
     if request.method == 'GET':
         return TemplateResponse(request, 'Students/assignmentsubmission_form.html')
 
-    username = "honda"
-    # username = request.user.get_username()
+    #username = "honda"
+    username = request.user.get_username()
     exec1 = "insert into Assignment_solved_by_Student(ass_number, course_code,student_id, answer) values(%s, %s, %s, %s);"
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()[0]
@@ -147,17 +158,22 @@ def submit_assignment_course(request):
 
 def view_activities(request):
     
-    username = "honda"
-    # username = request.user.get_username()
+    #username = "honda"
+    username = request.user.get_username()
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()[0]
-    cur.execute("CALL studentViewactivites2(%s)", (student_id))
+
+    sql = "select * from Activities where teacher_id in(select t.id from Teachers t where (t.school_name, t.school_address) IN (SELECT school_name, school_address FROM School_enrolled_Student WHERE student_id =%s));"
+    #cur.execute("CALL studentViewactivites2(%s)", (student_id))
+    cur.execute(sql, (student_id))
+
     data = cur.fetchall()
+
 
     all_data = []
     for record in data:
         data_dict = {}
-        data_dict['ac_date'] = record[0]
+        data_dict['ac_date'] = str(record[0])
         data_dict['location'] = record[1]
         data_dict['ac_type'] = record[2]
         data_dict['equipment'] = record[3]
@@ -170,8 +186,8 @@ def view_activities(request):
 
 def join_activities(request):
 
-    username = "honda"
-    # username = request.user.get_username()
+    #username = "honda"
+    username = request.user.get_username()
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()[0]
     cur.execute("SELECT a.ac_date, a.ac_type FROM Activities a INNER JOIN Activity_joined_by_Student aj ON (aj.activity_date = a.ac_date AND aj.activity_location = a.location) WHERE aj.student_id=%s", (student_id))
@@ -180,10 +196,11 @@ def join_activities(request):
     activity_type = request.POST.get('activity_type')
     activity_location = request.POST.get('activity_location')
 
-    if activity_type == ac[1] and activity_date == ac[0]:
+    if ac is not None and activity_type == ac[1] and activity_date == ac[0]:
         return HttpResponse("<h1>Cannot join activity, you have an activity with the same type and date</h1>")
 
     cur.execute("INSERT INTO Activity_joined_by_Student(student_id, activity_date, activity_location) VALUES(%s,%s,%s)", (student_id, activity_date, activity_location))
+    db.commit()
 
     return view_activities(request)
 
@@ -193,8 +210,8 @@ def view_grades_assignment_course(request):
     if request.method == 'GET':
         return TemplateResponse(request, 'Students/assignmentgraded_form.html')
 
-    username = "honda"
-    # username = request.user.get_username()
+    #username = "honda"
+    username = request.user.get_username()
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()[0]
     code = request.POST.get('course_code')
@@ -217,21 +234,37 @@ def view_grades_assignment_course(request):
     
 
 def view_clubs(request):
-    username = "honda"
-    # username = request.user.get_username()
+    #username = "honda"
+    username = request.user.get_username()
     cur.execute("SELECT id FROM Students WHERE username=%s", (username))
     student_id = cur.fetchone()[0]
-    cur.execute("CALL viewClubsInMySchool(%s)", (student_id))
+    sql = "SELECT * FROM Clubs WHERE (school_name, school_address) IN (SELECT school_name, school_address FROM School_enrolled_Student WHERE student_id=%s)"
+    cur.execute(sql, (student_id))
     data = cur.fetchall()
     all_data = []
     for record in data:
         data_dict = {}
         data_dict['club_name'] = record[0]
+        data_dict['school_name'] = record[1]
+        data_dict['school_address'] = record[2]
+        data_dict['purpose'] = record[3]
         all_data.append(data_dict)
 
     return TemplateResponse(request, 'Students/clubs.html', {"data": all_data})
     
 
 def join_clubs(request):
+    username = request.user.get_username()
+    cur.execute("SELECT id FROM Students WHERE username=%s", (username))
+    student_id = cur.fetchone()[0]
+    club_name = request.POST.get('club_name')
+    school_name = request.POST.get("school_name")
+    school_address = request.POST.get("school_address")
+    cur.execute("SELECT grade_code FROM School_enrolled_Student WHERE student_id=%s", (student_id))
+    grade_code = cur.fetchone()[0]
+    if grade_code < 10:
+        return HttpResponse("<h1>You are not a high school student.</h1>")
+    cur.execute("INSERT INTO Club_joined_by_Student(student_id, school_name, school_address, club_name) VALUES(%s,%s,%s,%s)", (student_id, school_name, school_address, club_name))
+    db.commit()
 
-    return
+    return index(request)

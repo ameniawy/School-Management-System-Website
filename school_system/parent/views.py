@@ -15,7 +15,8 @@ cur = db.cursor()
 
 
 def  home(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     cur.execute("SELECT name, s_address, s_type FROM Schools")
     data = cur.fetchall()
     all_data = []
@@ -28,8 +29,12 @@ def  home(request):
     return render(request,'parent/apply/apply_school.html',{'schools':all_data,'user':unkown_user})
 
 
+
+
+
 def apply_child(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     if request.method=='POST':
         ssn = request.POST.get('ssn')
         name = request.POST.get('name')
@@ -43,9 +48,22 @@ def apply_child(request):
         return HttpResponse('done')
     return HttpResponse('Failed')
 
+def apply_for_already_created_child(request):
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
+    if request.method == 'POST':
+        ssn = request.POST.get('ssn')
+        school_address = request.POST.get('address')
+        school_name = request.POST.get('school_name')
+        cur.execute('call applyForChildInSchool(%s,%s,%s,%s)', (unkown_user, ssn, school_name, school_address))
+        db.commit()
+        return HttpResponse('done')
+    return HttpResponse('Failed')
+
 
 def accepted_children(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     exec2= "select cap.school_name, cap.school_address, cap.child_ssn from Child_applied_by_Parent_in_School cap where cap.accepted = 1 and cap.child_ssn in (select ssn from Children where parent_username = %s) order by cap.child_ssn;"
     cur.execute(exec2, (unkown_user))
     data = cur.fetchall()
@@ -62,7 +80,8 @@ def accepted_children(request):
     return render(request,'parent/choose/accpeted_schools.html', {'schools':all_data,'user':unkown_user})
 
 def choose_school(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     exec1 = "update Child_applied_by_Parent_in_School set choosen = 1 where parent_username = %s and child_ssn = %s and school_name = %s and school_address= %s"
     exec2 = "select * from  Child_applied_by_Parent_in_School where parent_username = %s and child_ssn = %s  and choosen = 1"
     exec3 = "insert into Students(child_ssn) values (%s);"
@@ -83,9 +102,9 @@ def choose_school(request):
         print(data)
         if len(all_data)>0:
             return HttpResponse('You already applied for this child')
-        print('hi')
+
         cur.execute(exec1,(unkown_user,ssn,school_name,school_address))
-        db.commit()
+
 
         cur.execute(exec4,(ssn))
         student_id = cur.fetchall()[0][0]
@@ -97,11 +116,12 @@ def choose_school(request):
 
 
 def reports(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     cur.execute('call parentViewChildrenReports(%s)', (unkown_user))
     data = cur.fetchall()
     all_data = []
-    exec1 = 'select first_name , last_name from teachers where id = %s'
+    exec1 = 'select first_name , last_name from Teachers where id = %s'
     for record in data:
         data_dict = {}
         data_dict['date'] = record[0]
@@ -120,7 +140,8 @@ def reports(request):
 
 
 def report_reply(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     if request.method == 'POST':
         parent_username = unkown_user
         report_date = request.POST.get('report_date')
@@ -136,7 +157,8 @@ def report_reply(request):
 
 
 def teachers(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     cur.execute('call viewTeachersofMyChildren(%s)', (unkown_user))
     data = cur.fetchall()
     all_data = []
@@ -154,7 +176,8 @@ def teachers(request):
 
 
 def rate_teacher(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
 
     if request.method=="POST":
         parent_username = unkown_user
@@ -168,7 +191,8 @@ def rate_teacher(request):
 
 
 def schools(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
     cur.execute('call parentViewSchoolsofChildren(%s)',(unkown_user))
     data = cur.fetchall()
     all_data = []
@@ -180,7 +204,8 @@ def schools(request):
     return render(request, 'parent/accepted_schools/my_school.html', {'schools':all_data,'user':unkown_user})
 
 def write_review(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
 
     if request.method == 'POST':
         parent_user = unkown_user
@@ -195,7 +220,8 @@ def write_review(request):
 
 
 def get_reviews(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
 
     cur.execute('select * from SchoolReviews where parent_username = %s',(unkown_user))
     data = cur.fetchall()
@@ -211,7 +237,8 @@ def get_reviews(request):
 
 
 def delete_review(request):
-    unkown_user = 'mhmd'
+    #unkown_user = 'super.parent'
+    unkown_user = request.user.get_username()
 
     if request.method == 'POST':
         parent_user = unkown_user
@@ -224,30 +251,3 @@ def delete_review(request):
         db.commit()
         return HttpResponse('done deleted')
     return render(request, 'parent/form.html', {})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -2,35 +2,45 @@
 {% extends "account/index.html" %}
 {% block content %}
 
+<div class="row_fawzy title_fawzy"><h4>{{school.name}}</h4></div>
 
-<h1>{{school.name}}</h1>
-<p><h3>Address</h3> {{school.address}}</p>
-<p><h3>Phone</h3> {{school.phone_number}}</p>
-<p><h3>Mission</h3> {{school.mission}}</p>
-<p><h3>Vision</h3> {{school.vision}}</p>
-<p><h3>Information</h3> {{school.information}}</p>
-<p><h3>Main Language</h3> {{school.language}}</p>
-<p><h3>Fees</h3> {{school.fees}}</p>
-<p><h3>Type</h3> {{school.type}}</p>
-<hr>
+<div>
+	
+<div class="row_fawzy"> <div class="sub_head"><h5>Address</h4></div> <div class="content_fawzy">{{school.address}}</div>  </div>
+<div class="row_fawzy"> <div class="sub_head"><h5>Mission</h4></div> <div class="content_fawzy">{{school.mission}}</div>  </div>
+<div class="row_fawzy"> <div class="sub_head"><h5>Vision</h4></div> <div class="content_fawzy">{{school.vision}}</div>  </div>
+<div class="row_fawzy"> <div class="sub_head"><h5>Information</h4></div> <div class="content_fawzy"> {{school.information}}</div>  </div>
+<div class="row_fawzy"> <div class="sub_head"><h5>Language</h4></div> <div class="content_fawzy">{{school.language}}</div>  </div>
+<div class="row_fawzy"> <div class="sub_head"><h5>Fees</h4></div> <div class="content_fawzy">{{school.fees}}</div>  </div>
+<div class="row_fawzy"> <div class="sub_head"><h5>Type</h4></div> <div class="content_fawzy">{{school.type}}</div>  </div>
+<div class="row_fawzy"> <div class="sub_head"><h5>Phone</h4></div> <div class="content_fawzy">{{school.phone_number}}</div>  </div>
 
-<h2>Reviews about {{school.name}}</h2>
-{% for review in reviews %}
-<hr>
-<div class="school">
-    <p>{{review.review}}</p>
-    <h3>Review By: {{review.parent}}</h3>
 </div>
+<div class="head_fawzy">Reviews</div>
+{% for review in reviews %}
+
+<hr>
+
+<div class="review" >{{review.review}}  
+<br> <br><strong>by: {{review.parent}}</strong> 
+</div> 
+
+
 <hr>
 {% endfor %}
 <br>
-<h2>Announcements for {{school.name}}</h2>
+<div class="head_fawzy">Announcements</div>
+<hr>
+
 {% for ann in announcements %}
-<hr>
-<div class="school">
-    <p><h4>Title:</h4>{{ann.title}} <h4>Desc:</h4> {{ann.description}} <h4>Date:</h4> {{ann.date}}</p>
-</div>
-<hr>
+<div class="review" >
+<strong> {{ann.title}} </strong>
+<br>
+<br>
+{{ann.description}}  
+<br> <br><strong>Date: {{ann.date}}
+</strong> 
+</div> 
 {% endfor %}
 <br><br><br><br>
 

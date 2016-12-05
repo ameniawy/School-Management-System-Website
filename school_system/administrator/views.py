@@ -96,26 +96,17 @@ def approve_teacher(request):
     username = first_name[:2] + '.' + last_name
     password = 'password'
 
-    user = User()
-    user.username = username
-    user.set_password(password)
-    user.save()
-    type_of_user = user_type()
-    type_of_user.user = user
-    type_of_user.type = 'teacher'
-    type_of_user.save()
-
     # Get the chosen applied teacher
-    cur.execute("SELECT * FROM signedUpTeachers WHERE first_name =%s AND middle_name =%s AND last_name=%s", (first_name, middle_name, last_name))
+    cur.execute("SELECT birth_date, email, gender, e_address, school_name, school_address, years_of_experience FROM Teachers WHERE first_name =%s AND middle_name =%s AND last_name=%s AND username IS NULL", (first_name, middle_name, last_name))
     record = cur.fetchone()
 
-    birth_date = record[3]
-    email = record[4]
-    gender = record[5]
-    address = record[6]
-    school_name = record[7]
-    school_address = record[8]
-    years = record[9]
+    birth_date = record[0]
+    email = record[1]
+    gender = record[2]
+    address = record[3]
+    school_name = record[4]
+    school_address = record[5]
+    years = record[6]
 
     # Get type of school (National or International)
     cur.execute("SELECT s_type FROM Schools WHERE name=%s AND s_address=%s", (school_name, school_address))
@@ -125,9 +116,17 @@ def approve_teacher(request):
         salary = 3000
 
     # Add teacher to Teacher with assigned username and password
-    cur.execute("INSERT INTO Teachers(username, e_password, first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address, years_of_experience, salary) VALUES(%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)",(username, password, first_name, middle_name, last_name, birth_date, email, gender, address, school_name, school_address, years, salary))
+    cur.execute("UPDATE Teachers SET username =%s, e_password=%s, salary=%s WHERE first_name =%s AND middle_name =%s AND last_name=%s AND username IS NULL", (username, password, salary, first_name, middle_name, last_name))
     # Delete teacher from signedUp as he is now signedUp already
-    cur.execute("DELETE FROM signedUpTeachers WHERE first_name =%s AND middle_name=%s AND last_name=%s", (first_name, middle_name, last_name))
+
+    user = User()
+    user.username = username
+    user.set_password(password)
+    user.save()
+    type_of_user = user_type()
+    type_of_user.user = user
+    type_of_user.type = 'teacher'
+    type_of_user.save()
 
     db.commit()
 
@@ -340,7 +339,7 @@ def post_announcement(request):
     cur.execute("INSERT INTO Announcements(title, description_, an_date, type_, admin_id) VALUES(%s,%s,%s,%s,%s)",(title, description, date, type, id_))
     db.commit()
 
-    return index(request)
+    return view_signed_up_teachers(request)
 
 
 def create_activity(request):
@@ -376,7 +375,7 @@ def create_activity(request):
     cur.execute("INSERT INTO Activities(ac_date, location, ac_type, equipment, ac_description, teacher_id) VALUES(%s,%s,%s,%s,%s,%s)", (date, location, type, equipment, description, teacher_id))
     db.commit()
 
-    return index(request)
+    return view_signed_up_teachers(request)
 
 
 def assign_teacher_to_course(request):
@@ -415,5 +414,5 @@ def assign_teacher_to_course(request):
 
     db.commit()
 
-    return index(request)
+    return view_signed_up_teachers(request)
 

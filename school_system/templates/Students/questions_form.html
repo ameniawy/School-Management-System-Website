@@ -1,18 +1,11 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      View Questions
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
+
     <form name="questions" action="/Students/view_allquestion_course/" method="POST">
       {% csrf_token %}
       Course Code: <input type="text" name="course_code" >
-      <input type="submit" value="Submit">
+      <input type="submit" value="Submit" class="waves-effect waves-light btn" >
     </form>
 
-  </body>
-
-</html>
+{% endblock %}

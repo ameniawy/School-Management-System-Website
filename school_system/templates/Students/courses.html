@@ -1,31 +1,30 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      View COURSES
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
 
     {% for course in data %}
-    <div class="course">
+    <div class="review">
 
-      <p>COURSE CODE: {{course.code}} || COURSE NAME: {{course.name}} || COURSE LEVEL: {{course.c_level}}
-        || COURSE DESCRIPTION: {{course.description}} || COURSE GRADE CODE: {{course.grade_code}}  </p>
+    <div>
+      
+
+    </div>
+    <br> <br> 
+     <strong> COURSE CODE:  </strong>  {{course.code}} <br> <br> <strong> COURSE NAME: </strong>   {{course.name}} <br>  <br> <strong> COURSE LEVEL: </strong>   {{course.c_level}}
+        <br> <br> <strong> COURSE DESCRIPTION: </strong>     {{course.description}} <br> <br>  <strong> COURSE GRADE CODE: </strong>   {{course.grade_code}} 
 
     <form name="questions" action="/Students/post_question_course/" method="POST">
       {% csrf_token %}
-        Question: <input type="text" name="question" >
+      <input type="text" name="question" placeholder="Type question here.." >
         <input type="hidden" name="course_code" value="{{ course.code }}" />
         <input type="hidden" name="student_id" value="{{ student_id }}" />
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Ask Question" class="waves-effect waves-light btn" >
     </form>
       
     </div>
     <hr>
     {% endfor %}
-  </body>
-
-</html>
+<br>
+<br>
+{% endblock %}

@@ -1,21 +1,27 @@
+{% extends "teacher/index.html" %}
+{% block content %}
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Teacher</title>
-</head>
-<body>
-
-<a href="/teacher/"><h3>Go To Teacher Home</h3></a>
+<h1 style="text-align: center">View Courses</h1>
 
 {% for course in data %}
 <div class="course">
-
-  <p>Code: {{course.code}} || Name: {{course.name}} || Course Level: {{course.c_level}} || Description: {{course.description}} || Grade: {{course.grade_code}} </p>
-
+	<div class="col s12 m6">
+		<div class="card blue-grey darken-1">
+			<div class="card-content white-text">
+				<span class="card-title">Code: {{course.code}} </span>
+				<br>
+				<span class="card-title">Name: {{course.name}}</span>
+				<br>
+				<span class="card-title">Course Level: {{course.c_level}}</span>
+				<br>
+				<span class="card-title">Description: {{course.description}}</span>
+				<br>
+				<span class="card-title">Grade: {{course.grade_code}}</span>
+			</div>
+		</div>
+	</div>
 </div>
 <hr>
 {% endfor %}
 
-</body>
-</html>
+{% endblock %}

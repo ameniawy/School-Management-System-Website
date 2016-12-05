@@ -1,23 +1,18 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      Post an assignments
-    </title>
-  </head>
+{% extends "teacher/index.html" %}
+{% block content %}
 
-  <body>
-    <form name="search" action="/teacher/posted_assignment" method="get">
-      Course Code: <input type="text" name="course_code" value="">
-      Due Date: <input type="text" name="due_date" value="">
-      Post Date: <input type="text" name="post_date" value="">
-      Content: <input type="text" name="content" value="">
-      Assignment Number: <input type="text" name="ass_num" value="">
-      {{code}} || {{ddate}} || {{pdate}} || {{content}} || {{num}}
+<h1 style="text-align: center">Post New Assignment</h1>
 
-      <p>{{date}}</p>
-      <input type="submit" value="Submit">
-    </form>
-  </body>
+<div class="teacher">
+  <form name="search" action="/teacher/posted_assignment" method="get">
+    Course Code: <input type="text" name="course_code" value="">
+    Due Date: <input type="text" name="due_date" value="">
+    Post Date: <input type="text" name="post_date" value="">
+    Content: <input type="text" name="content" value="">
+    Assignment Number: <input type="text" name="ass_num" value="">
+    <input type="submit" value="Submit" class="waves-effect waves-light btn">
+  </form>
 
-</html>
+</div>
+
+{% endblock %}

@@ -1,8 +1,6 @@
-<html>
-<head>
-  <title>Assignment submission</title>
-</head>
-<body>
+
+{% extends "Students/index.html" %}
+{% block content %}
 
 <h1> Submit an assignment</h1>
 
@@ -11,18 +9,15 @@
     <form form action="/Students/submit_assignment_course/" method="post">
         {% csrf_token %}
 
-        <p>COURSE CODE:</p>
+        <p>Course Code:</p>
         <input type="text" name="course_code"/>
-        <p>ass_number:</p>
+        <p>Assignment Number:</p>
         <input type="text" name="ass_number" />
         <p>Answer:</p>
         <input type="text" name="answer"  />
         
 
-        
-
-
-        <input type="submit" value="SUBMIT AN ASSIGNMENT" />
+        <input type="submit" value="SUBMIT AN ASSIGNMENT" class="waves-effect waves-light btn" />
     </form>
 
-</div>
+{% endblock %}
