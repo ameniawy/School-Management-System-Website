@@ -1,14 +1,7 @@
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>{{school.name}}</title>
-</head>
-<body>
+{% extends "account/index.html" %}
+{% block content %}
 
-
-
-<a href="/"><h3>Go To Home</h3></a>
 
 <h1>{{school.name}}</h1>
 <p><h3>Address</h3> {{school.address}}</p>
@@ -30,6 +23,15 @@
 </div>
 <hr>
 {% endfor %}
+<br>
+<h2>Announcements for {{school.name}}</h2>
+{% for ann in announcements %}
+<hr>
+<div class="school">
+    <p><h4>Title:</h4>{{ann.title}} <h4>Desc:</h4> {{ann.description}} <h4>Date:</h4> {{ann.date}}</p>
+</div>
+<hr>
+{% endfor %}
+<br><br><br><br>
 
-</body>
-</html>
+{% endblock %}

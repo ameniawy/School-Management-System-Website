@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>
+      View COURSES
+    </title>
+  </head>
+
+  <body>
+
+    {% for course in data %}
+    <div class="course">
+
+      <p>COURSE CODE: {{course.code}} || COURSE NAME: {{course.name}} || COURSE LEVEL: {{course.c_level}}
+        || COURSE DESCRIPTION: {{course.description}} || COURSE GRADE CODE: {{course.grade_code}}  </p>
+
+    <form name="questions" action="/Students/post_question_course/" method="POST">
+      {% csrf_token %}
+        Question: <input type="text" name="question" >
+        <input type="hidden" name="course_code" value="{{ course.code }}" />
+        <input type="hidden" name="student_id" value="{{ student_id }}" />
+
+      <input type="submit" value="Submit">
+    </form>
+      
+    </div>
+    <hr>
+    {% endfor %}
+  </body>
+
+</html>

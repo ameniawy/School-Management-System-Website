@@ -1,13 +1,8 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Administrator</title>
-</head>
-<body>
+{% extends "administrator/index.html" %}
+{% block content %}
 
 <h1>Create Activity</h1>
-<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
 
 <div class="teacher">
     <form form action="/administrator/create_activity/" method="post">
@@ -32,11 +27,9 @@
         </select>
 
 
-        <input type="submit" value="Create Activity" />
+        <input type="submit" value="Create Activity" class="waves-effect waves-light btn" />
     </form>
 
 </div>
 
-
-</body>
-</html>
+{% endblock %}

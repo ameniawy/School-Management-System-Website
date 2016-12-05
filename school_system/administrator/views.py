@@ -1,12 +1,15 @@
 # Author: Abdelrahman M.
 import pymysql
+import datetime
 
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from account.models import user_type
 from django.template.response import TemplateResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.conf import settings
+from django.contrib.auth import logout
 from django.contrib.auth.decorators import login_required
 
 db = pymysql.connect(host=settings.DB_HOST,  # your host, usually localhost
@@ -21,12 +24,45 @@ cur = db.cursor()
 # Create your views here.
 
 def index(request):
-    return TemplateResponse(request, 'administrator/index.html')
+    return TemplateResponse(request, 'administrator/index3.html')
+
+
+def logout_user(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+
+def create_admin(request):
+    """
+        Creates and admin for the school. Will not be used by the website. Only once by us to test.
+    """
+    if request.method == 'GET':
+        return TemplateResponse(request, 'administrator/register_admin.html')
+
+    username = request.POST.get("username")
+    password = request.POST.get("password")
+    school_name = request.POST.get("school_name")
+    school_address = request.POST.get("school_address")
+    birth_date = request.POST.get("birth_date")
+    cur.execute("INSERT INTO Adminstrators(username, e_password, birth_date, school_name, school_address) VALUES(%s,%s,%s,%s,%s)", (username, password, birth_date, school_name, school_address))
+
+    user = User()
+    user.username = username
+    user.set_password(password)
+    user.save()
+    type_of_user = user_type()
+    type_of_user.user = user
+    type_of_user.type = 'administrator'
+    type_of_user.save()
+
+    db.commit()
+
+    return HttpResponse('Registered admin successfully')
 
 
 def view_signed_up_teachers(request):
-    # username = request.user.get_username()
-    username = "meni"  # HARDCODED AND NEEDS TO BE CHANGED
+    username = request.user.get_username()
+    #username = "meni"  # HARDCODED AND NEEDS TO BE CHANGED
     cur.execute("SELECT first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address, years_of_experience FROM Teachers WHERE (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s) AND username is NULL", (username))
 
 
@@ -117,9 +153,9 @@ def view_applied_students(request):
     """
         View all signed up students
     """
-    # username = request.user.get_username()
-    username = "meni"
-    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE accepted = '0' OR accepted IS NULL AND (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s)", (username))
+    username = request.user.get_username()
+    #username = "meni"
+    cur.execute("SELECT * FROM Child_applied_by_Parent_in_School WHERE (accepted = '0' OR accepted IS NULL) AND (school_name, school_address) IN (SELECT school_name, school_address FROM Adminstrators WHERE username=%s)", (username))
 
     data = cur.fetchall()
 
@@ -173,8 +209,8 @@ def view_accepted_students(request):
     """
         View enrolled students
     """
-    # username = request.user.get_username()
-    username = "meni" # TODO:
+    username = request.user.get_username()
+    #username = "meni"
 
     cur.execute("SELECT e.student_ssn, e.student_id FROM School_enrolled_Student e INNER JOIN Adminstrators a ON e.school_name = a.school_name AND e.school_address = a.school_address WHERE a.username=%s AND (e.verified = 0 OR e.verified IS NULL) ", (username))
 
@@ -194,7 +230,8 @@ def verify_student(request):
     """
         Verify student and set username and password to them.
     """
-    username = "meni"
+    #username = "meni"
+    username = request.user.get_username()
     cur.execute("SELECT school_name, school_address FROM Adminstrators WHERE username=%s", (username))
     data = cur.fetchone()
     school_name = data[0]
@@ -236,8 +273,8 @@ def view_school_info(request):
     TODO: NOT FINISHED STILL NEED TO GET USERNAME OF LOGGED IN ADMIN
     Show the school info of the admin
     """
-    # username = request.user.get_username()
-    username = "meni" # HARDCODED AND NEEDS TO BE CHANGED
+    username = request.user.get_username()
+    #username = "meni" # HARDCODED AND NEEDS TO BE CHANGED
 
     cur.execute("SELECT * FROM Schools WHERE (name, s_address) IN (SELECT school_name, school_address FROM Adminstrators a WHERE a.username =%s)", (username))
     data = cur.fetchone()
@@ -288,8 +325,8 @@ def post_announcement(request):
     if request.method == 'GET':
         return TemplateResponse(request, 'administrator/post_announcement.html')
 
-    # username = request.user.get_username()
-    username = "mohabamroo"  # HARDCODED AND NEEDS TO BE CHANGED
+    username = request.user.get_username()
+    #username = "meni"  # HARDCODED AND NEEDS TO BE CHANGED
 
     # Now get the admin's id number
     cur.execute("SELECT id FROM Adminstrators WHERE username=%s", (username))
@@ -297,7 +334,7 @@ def post_announcement(request):
     # Fetch remaining attributes
     title = request.POST.get("title")
     description = request.POST.get("description")
-    date = request.POST.get("date")
+    date = datetime.datetime.today().strftime('%Y-%m-%d')
     type = request.POST.get("type")
 
     cur.execute("INSERT INTO Announcements(title, description_, an_date, type_, admin_id) VALUES(%s,%s,%s,%s,%s)",(title, description, date, type, id_))
@@ -310,8 +347,8 @@ def create_activity(request):
     """
         Show creation page or create activity with passed attributes.
     """
-    # username = request.user.get_username()
-    username = "mohabamroo"  # HARDCODED AND NEEDS TO BE CHANGED
+    username = request.user.get_username()
+    #username = "meni"  # HARDCODED AND NEEDS TO BE CHANGED
 
     if request.method == 'GET':
         cur.execute("SELECT school_name, school_address FROM Adminstrators WHERE username=%s", (username))
@@ -346,8 +383,8 @@ def assign_teacher_to_course(request):
     """
         Show assigning page for teacher to course. Or create the relation
     """
-    # username = request.user.get_username()
-    username = "mohabamroo"
+    username = request.user.get_username()
+    #username = "meni"
 
     if request.method == 'GET':
         cur.execute("SELECT school_name, school_address FROM Adminstrators WHERE username=%s", (username))

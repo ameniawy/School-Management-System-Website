@@ -33,10 +33,15 @@ urlpatterns = [
 
     url(r'^assign_teacher_to_course/', administrator.views.assign_teacher_to_course, name='assign_teacher_to_course'),
 
+    url(r'^logout/', administrator.views.logout_user, name='logout_user'),
+
+
+    url(r'^register_admin/', administrator.views.create_admin, name='create_admin'),
+
 
 
     # Admin Home
-    url(r'^$', administrator.views.index, name='admin_index'),
+    url(r'^$', administrator.views.view_signed_up_teachers, name='admin_index'),
 
 
 

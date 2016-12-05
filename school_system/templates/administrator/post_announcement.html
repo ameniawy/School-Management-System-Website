@@ -1,13 +1,8 @@
-
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Administrator</title>
-</head>
-<body>
+{% extends "administrator/index.html" %}
+{% block content %}
 
 <h1>Post New Announcement</h1>
-<a href="/administrator/"><h3>Go To Administrator Home</h3></a>
+
 
 <div class="teacher">
     <form form action="/administrator/post_announcement/" method="post">
@@ -17,17 +12,14 @@
         <input type="text" name="title" />
         <p>Description:</p>
         <input type="text" name="description" />
-        <p>Date (YYYY-MM-DD):</p>
-        <input type="text" name="date"/>
         <p>Type:</p>
         <input type="text" name="type"  />
 
 
-        <input type="submit" value="Post Announcement" />
+        <input type="submit" value="Post Announcement" class="waves-effect waves-light btn" />
     </form>
 
 </div>
 
 
-</body>
-</html>
+{% endblock %}
