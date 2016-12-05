@@ -1,19 +1,31 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      Write a Report
-    </title>
-  </head>
+{% extends "teacher/index.html" %}
+{% block content %}
 
-  <body>
-    <form name="report" action="/teacher/submitted_report" method="get">
-      Student ID: <input type="text" name="student_id" value="">
-      Date: <input type="text" name="date" value="">
-      Content: <input type="text" name="content" value="">
-      {{date}} || {{student_id}} || {{content}} || {{teacher_id}}
-      <input type="submit" value="Submit">
-    </form>
-  </body>
+<h1 style="text-align: center">Write a Report</h1>
 
-</html>
+
+<div class="teacher">
+  <form name="report" action="/teacher/submitted_report" method="get">
+    Student ID: <input type="text" name="student_id" value="">
+    Date: <input type="text" name="date" value="">
+    Content: <input type="text" name="content" value="">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">Date: {{date}}</span>
+          <br>
+          <span class="card-title">Student-ID: {{student_id}}</span>
+          <br>
+          <span class="card-title">Content: {{content}}</span>
+          <br>
+          <span class="card-title">Teacher-ID: {{teacher_id}}</span>
+        </div>
+      </div>
+    </div>
+    <input type="submit" value="Submit">
+  </form>
+
+</div>
+
+
+{% endblock %}
