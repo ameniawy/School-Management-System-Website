@@ -3,8 +3,8 @@
 
 <h1 style="text-align: center">View Questions</h1>
 <form name="questions" action="/teacher/view_questions" method="get">
-  Course Code: <input type="text" name="course_code" value="">
-  <input type="submit" value="Submit">
+  Course Code: <input type="text" name="course_code" value="" placeholder="Course Code Here...">
+  <input type="submit" value="Submit" class="waves-effect waves-light btn" >
 </form>
 
 {% for question in data %}
@@ -29,9 +29,9 @@
   <form form action="/teacher/post_answer/" method="post">
       {% csrf_token %}
       <input type="hidden" name="q_number" value="{{question.q_number}}" />
-      <input type="hidden" name="course_code" value="{{question.course_code}" />
-      <input type="text" name="answer" />
-      <input type="submit" value="Post Answer" />
+      <input type="hidden" name="course_code" value="{{question.course_code}}" />
+      <input type="text" name="answer" placeholder="Write Answer here..." />
+      <input type="submit" value="Post Answer" class="waves-effect waves-light btn" />
   </form>
 </div>
 <hr>

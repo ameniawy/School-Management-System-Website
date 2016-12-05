@@ -62,11 +62,94 @@
       z-index: 900;
     }
     </style>
+     <style type="text/css">
+  
+.row_fawzy{
+
+  position: relative;
+  height: 60px;
+  width: 340px;
+  display: flex;
+  box-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+  margin-top: 20px;
+  border-radius: 20px ;
+  overflow: hidden;
+  left: 50%;
+  margin-left: -170px;
+}
+.title_fawzy{
+  align-items: center;
+  justify-content: center;
+    width: 100%;
+left: 0%;
+  margin-left: 0px;
+
+}
+.sub_head{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 35%;
+  background-color: #26C281;
+  color: white;
+}
+
+h5{
+  font-size: 20px;
+}
+
+.content_fawzy{
+  position: relative;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.head_fawzy{
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  margin-top: 50px;
+
+
+}
+.review{
+  position: relative;
+  width: 100%;
+  text-align: center;
+  border: 0.1px solid rgba(0,0,0, 0.2);
+  border-radius: 10px;
+  margin-top: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+hr{
+  position: relative;
+  width: 150px;
+  left: 50%;
+  margin-left: -75px;
+}
+.fawzy_header{
+  padding: 20px;
+  padding-left: 405px;
+
+  box-sizing: border-box;
+  font-size: 40px;
+  color: #1e88e5  !important;
+}
+
+</style>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600 fawzy_header">
+      {{request.user}}
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
@@ -88,10 +171,11 @@
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
           <a class="mdl-navigation__link" href="/Students/student_info/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Profile</a>
           <a class="mdl-navigation__link" href="/Students/courses/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Courses</a>
-          <a class="mdl-navigation__link" href="/Students/view_allquestion_course/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">message</i>View Questions</a>
-          <a class="mdl-navigation__link" href="/Students/view_assignment_course/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>View Assignments</a>
+          <a class="mdl-navigation__link" href="/Students/view_allquestion_course/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">message</i>V. Questions</a>
+          <a class="mdl-navigation__link" href="/Students/view_assignment_course/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>V. Assignments</a>
+            <a class="mdl-navigation__link" href="/Students/submit_assignment_course/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Submit Ass.</a>
           <a class="mdl-navigation__link" href="/Students/activities/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>Activities</a>
-          <a class="mdl-navigation__link" href="/Students/grades_assignment_course/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Assignment Grades</a>
+          <a class="mdl-navigation__link" href="/Students/grades_assignment_course/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Ass. Grades</a>
             <a class="mdl-navigation__link" href="/Students/clubs/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Clubs</a>
           <div class="mdl-layout-spacer"></div>
         </nav>

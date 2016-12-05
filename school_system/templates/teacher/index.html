@@ -60,32 +60,20 @@
       margin-bottom: 40px;
       z-index: 900;
     }
+           .fawzy_header{
+  padding: 20px;
+  padding-left: 405px;
+
+  box-sizing: border-box;
+  font-size: 40px;
+  color: #1e88e5  !important;
+}
     </style>
   </head>
   <body>
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
-      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
-        <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title">Home</span>
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
-            <label class="mdl-button mdl-js-button mdl-button--icon" for="search">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" id="search">
-              <label class="mdl-textfield__label" for="search">Enter your query...</label>
-            </div>
-          </div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
-            <i class="material-icons">more_vert</i>
-          </button>
-          <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-            <li class="mdl-menu__item">About</li>
-            <li class="mdl-menu__item">Contact</li>
-            <li class="mdl-menu__item">Legal information</li>
-          </ul>
-        </div>
+      <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600 fawzy_header">
+      {{request.user}}
       </header>
       <div class="demo-drawer mdl-layout__drawer mdl-color--blue-grey-900 mdl-color-text--blue-grey-50">
         <header class="demo-drawer-header">
@@ -105,12 +93,12 @@
 
         </header>
         <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-          <a class="mdl-navigation__link" href="/teacher/courses/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>View a list of courses</a>
-          <a class="mdl-navigation__link" href="/teacher/post_assignment/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>Post assignments</a>
-          <a class="mdl-navigation__link" href="/teacher/view_assignments/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">message</i>View a list of assignments</a>
-          <a class="mdl-navigation__link" href="/teacher/write_report/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Write a report about a student</a>
-          <a class="mdl-navigation__link" href="/teacher/questions/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>View a list of questions</a>
-          <a class="mdl-navigation__link" href="/teacher/view_students/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>View a list of students</a>
+          <a class="mdl-navigation__link" href="/teacher/courses/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">home</i>Courses</a>
+          <a class="mdl-navigation__link" href="/teacher/post_assignment/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">inbox</i>P. Assignments</a>
+          <a class="mdl-navigation__link" href="/teacher/view_assignments/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">message</i>V. Assignments</a>
+          <a class="mdl-navigation__link" href="/teacher/write_report/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">report</i>Report Student</a>
+          <a class="mdl-navigation__link" href="/teacher/questions/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">forum</i>View Questions</a>
+          <a class="mdl-navigation__link" href="/teacher/view_students/"><i class="mdl-color-text--blue-grey-400 material-icons" role="presentation">flag</i>Students</a>
           <div class="mdl-layout-spacer"></div>
         </nav>
       </div>

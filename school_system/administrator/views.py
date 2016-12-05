@@ -339,7 +339,7 @@ def post_announcement(request):
     cur.execute("INSERT INTO Announcements(title, description_, an_date, type_, admin_id) VALUES(%s,%s,%s,%s,%s)",(title, description, date, type, id_))
     db.commit()
 
-    return index(request)
+    return view_signed_up_teachers(request)
 
 
 def create_activity(request):
@@ -375,7 +375,7 @@ def create_activity(request):
     cur.execute("INSERT INTO Activities(ac_date, location, ac_type, equipment, ac_description, teacher_id) VALUES(%s,%s,%s,%s,%s,%s)", (date, location, type, equipment, description, teacher_id))
     db.commit()
 
-    return index(request)
+    return view_signed_up_teachers(request)
 
 
 def assign_teacher_to_course(request):
@@ -414,5 +414,5 @@ def assign_teacher_to_course(request):
 
     db.commit()
 
-    return index(request)
+    return view_signed_up_teachers(request)
 

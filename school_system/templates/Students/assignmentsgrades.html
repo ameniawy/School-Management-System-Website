@@ -3,10 +3,8 @@
 {% block content %}
 
     {% for assignmentgrades in data %}
-    <div class="assignmnetgrades">
-
-      <p>ASSIGNMENT NUMBER: {{assignmentgrades.ass_number}} || Course: {{assignmentgrades.course_code}} || STUDENT_ID: {{assignmentgrades.student_id}}
-        || ANSWER: {{assignmentgrades.answer}} || GRADE: {{assignmentgrades.grade}}  </p>
+    <div class="review">
+    <strong> ASSIGNMENT NUMBER:  </strong>  {{assignmentgrades.ass_number}}  <br> <br> <strong> Course: </strong>   {{assignmentgrades.course_code}}  <br>  <br> <strong> ANSWER: </strong>   {{assignmentgrades.answer}} <br>  <br> <strong> GRADE: </strong>   {{assignmentgrades.grade}} <br>  <br>
       
     </div>
     <hr>

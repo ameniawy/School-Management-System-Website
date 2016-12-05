@@ -3,10 +3,12 @@
 {% block content %}
 
     {% for assignment in data %}
-    <div class="assignment">
+    <div class="review">
 
-      <p>Num: {{assignment.a_number}} || Course: {{assignment.course_code}} || CONTENT: {{assignment.content}}
-        || Due_date: {{assignment.due_date}} || POST_date: {{assignment.post_dat}} || TEACHER ID: {{assignment.teacher_id}} </p>
+
+ <br> <br> 
+     <strong> Num:  </strong>  {{assignment.a_number}} <br> <br> <strong> COURSE: </strong>   {{assignment.course_cod}} <br>  <br> <strong> CONTENT: </strong>   {{assignment.content}}
+        <br> <br> <strong> Due_date:</strong>     {{assignment.due_date}} <br> <br>  <strong> POST_date:</strong>   {{assignment.post_dat}} <br><br> <strong> TEACHER ID :</strong> {{assignment.teacher_id}}
       
     </div>
     <hr>

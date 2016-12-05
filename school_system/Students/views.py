@@ -173,7 +173,7 @@ def view_activities(request):
     all_data = []
     for record in data:
         data_dict = {}
-        data_dict['ac_date'] = record[0]
+        data_dict['ac_date'] = str(record[0])
         data_dict['location'] = record[1]
         data_dict['ac_type'] = record[2]
         data_dict['equipment'] = record[3]
@@ -195,8 +195,6 @@ def join_activities(request):
     activity_date = request.POST.get('activity_date')
     activity_type = request.POST.get('activity_type')
     activity_location = request.POST.get('activity_location')
-    print "okkk"
-    print ac
 
     if ac is not None and activity_type == ac[1] and activity_date == ac[0]:
         return HttpResponse("<h1>Cannot join activity, you have an activity with the same type and date</h1>")
@@ -262,6 +260,10 @@ def join_clubs(request):
     club_name = request.POST.get('club_name')
     school_name = request.POST.get("school_name")
     school_address = request.POST.get("school_address")
+    cur.execute("SELECT grade_code FROM School_enrolled_Student WHERE student_id=%s", (student_id))
+    grade_code = cur.fetchone()[0]
+    if grade_code < 10:
+        return HttpResponse("<h1>You are not a high school student.</h1>")
     cur.execute("INSERT INTO Club_joined_by_Student(student_id, school_name, school_address, club_name) VALUES(%s,%s,%s,%s)", (student_id, school_name, school_address, club_name))
     db.commit()
 

@@ -1,5 +1,6 @@
 #Author: Mohab
 import pymysql
+import datetime
 
 from django.shortcuts import render
 from django.http import HttpResponse
@@ -18,8 +19,8 @@ cur = db.cursor()
 
 
 def index(request):
-    return TemplateResponse(request, 'teacher/index.html')
-
+    #return TemplateResponse(request, 'teacher/index.html')
+    return view_courses(request)
 # 1 View a list of courses names taught by him/her, listed based on their level then their grade.
 
 
@@ -117,8 +118,10 @@ def grade_assignment(request):
     ass_num = request.POST.get('ass_num')
     student_id = request.POST.get('student_id')
     grade = request.POST.get('ass_grade')
+    print course_code, ass_num, student_id, grade
 
     cur.execute("UPDATE Assignment_solved_by_Student SET grade=%s WHERE ass_number=%s AND course_code=%s AND student_id=%s", (grade, ass_num, course_code, student_id))
+    db.commit()
 
     return view_assignments(request)
 
@@ -132,7 +135,8 @@ def write_report(request):
 
 def submitted_report(request):
     student_id = request.GET.get('student_id')
-    date = request.GET.get('date')
+    # date = request.GET.get('date')
+    date = datetime.datetime.today().strftime('%Y-%m-%d')
     content = request.GET.get('content')
     username = request.user.get_username()
     cur.execute("SELECT id FROM Teachers WHERE username=%s", (username))
@@ -173,10 +177,10 @@ def view_questions(request):
 
 
 def post_answer(request):
-    code = request.GET.get('course_code')
-    q_number = request.GET.get('q_number')
-    answer = request.GET.get('answer')
-    cur.execute("UPDATE Questions set answer=%s where course_code=%s and q_number", (answer, code, q_number))
+    code = request.POST.get('course_code')
+    q_number = request.POST.get('q_number')
+    answer = request.POST.get('answer')
+    cur.execute("UPDATE Questions set answer=%s where course_code=%s and q_number=%s", (answer, code, q_number))
     return TemplateResponse(request, 'teacher/questions.html', {})
 
 # 6 View a list of students that a teacher teaches categorized by their grades and ordered by their names

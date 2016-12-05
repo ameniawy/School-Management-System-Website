@@ -86,7 +86,7 @@ def register_parent(request):
         cur.execute("INSERT INTO Parents(username, password_, first_name, last_name, email, p_address, telephone_number) VALUES(%s,%s,%s,%s,%s,%s,%s)", (username, password, first_name, last_name, email, address, phone_number))
         db.commit()
 
-        return HttpResponse('Registered')
+        return HttpResponseRedirect("/parent/home/")
 
     return TemplateResponse(request, 'account/register_parent.html')
 
@@ -114,7 +114,7 @@ def register_teacher(request):
         cur.execute("INSERT INTO Teachers(first_name, middle_name, last_name, birth_date, email, gender, e_address, school_name, school_address,home_phone, years_of_experience) VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)", (first_name, middle_name, last_name, birth_date, email, gender, address, school_name, school_address, home_phone, years))
         db.commit()
 
-        return HttpResponse('Registered as a Teacher')
+        return HttpResponseRedirect('teacher')
 
     cur.execute("SELECT name, s_address FROM Schools")
     data = cur.fetchall()
@@ -156,6 +156,7 @@ def view_school_info(request):
 
     cur.execute("SELECT * FROM Schools WHERE name=%s AND s_address=%s", (school_name, school_address))
     school_info = cur.fetchone()
+
     school = {}
     school['name'] = school_info[0]
     school['address'] = school_info[1]

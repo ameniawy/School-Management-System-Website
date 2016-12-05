@@ -6,7 +6,7 @@
 {% for assignment in data %}
 <div class="assignment">
 
-	<div class="col s12 m6">
+	<div class="col s12 m6" >
 		<div class="card blue-grey darken-1">
 			<div class="card-content white-text">
 				<span class="card-title">#{{assignment.ass_num}}</span>
@@ -17,13 +17,13 @@
 				<br>
 				<span class="card-title">Answer: {{assignment.answer}}</span>
 			</div>
-			<form form action="/teacher/grade_assignment/" method="post">
+			<form action="/teacher/grade_assignment/" method="POST">
 					{% csrf_token %}
 					<input type="hidden" name="ass_num" value="{{assignment.ass_num}}" />
-					<input type="hidden" name="course_code" value="{{assignment.course_code}" />
-					<input type="hidden" name="course_code" value="{{assignment.student_id}" />
-					<input type="text" name="ass_grade"  />
-					<input type="submit" value="Grade Assignment" />
+					<input type="hidden" name="course_code" value="{{assignment.course_code}}" />
+					<input type="hidden" name="student_id" value="{{assignment.student_id}}" />
+					<input type="text" name="ass_grade"  placeholder=" Write Assignment Grade here ..." />
+					<input type="submit" value="Grade Assignment" class="waves-effect waves-light btn" />
 			</form>
 		</div>
 	</div>
@@ -32,7 +32,6 @@
 
 
 </div>
-<hr>
 {% endfor %}
 
 {% endblock %}
