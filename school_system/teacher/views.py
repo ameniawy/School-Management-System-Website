@@ -18,7 +18,7 @@ cur = db.cursor()
 
 
 def index(request):
-    return TemplateResponse(request, 'teacher/index3.html')
+    return TemplateResponse(request, 'teacher/index.html')
 
 # 1 View a list of courses names taught by him/her, listed based on their level then their grade.
 
