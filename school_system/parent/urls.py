@@ -13,6 +13,7 @@ urlpatterns = [
     url(r'^schools/$', schools, name='parent_schools'),
     url(r'^write_review/$', write_review, name='parent_write'),
     url(r'^reviews/$', get_reviews, name='parent_reviews'),
-    url(r'^delete_reviews/$', delete_review, name='delete_review')
+    url(r'^delete_reviews/$', delete_review, name='delete_review'),
+    url(r'^already/$', apply_for_already_created_child, name='already')
 
 ]
