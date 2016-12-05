@@ -1,12 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      View Questions
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
 
     {% for question in data %}
     <div class="question">
@@ -17,6 +11,5 @@
     </div>
     <hr>
     {% endfor %}
-  </body>
 
-</html>
+{% endblock %}

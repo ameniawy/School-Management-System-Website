@@ -1,12 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      View COURSES
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
 
     {% for course in data %}
     <div class="course">
@@ -16,16 +10,15 @@
 
     <form name="questions" action="/Students/post_question_course/" method="POST">
       {% csrf_token %}
-        Question: <input type="text" name="question" >
+        Question: <input type="text" name="question" value="Type question here.." >
         <input type="hidden" name="course_code" value="{{ course.code }}" />
         <input type="hidden" name="student_id" value="{{ student_id }}" />
 
-      <input type="submit" value="Submit">
+      <input type="submit" value="Ask Question" class="waves-effect waves-light btn" >
     </form>
       
     </div>
     <hr>
     {% endfor %}
-  </body>
 
-</html>
+{% endblock %}

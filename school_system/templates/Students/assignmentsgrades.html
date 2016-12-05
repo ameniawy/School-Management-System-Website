@@ -1,12 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      VIEW GRADE OF AN ASSIGNMENT
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
 
     {% for assignmentgrades in data %}
     <div class="assignmnetgrades">
@@ -17,6 +11,5 @@
     </div>
     <hr>
     {% endfor %}
-  </body>
 
-</html>
+{% endblock %}

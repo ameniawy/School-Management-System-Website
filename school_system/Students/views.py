@@ -20,7 +20,7 @@ cur = db.cursor()
 
 
 def index(request):
-    return TemplateResponse(request, 'Students/index.html')
+    return view_student_info(request)
 
 
 def view_student_info(request):
@@ -44,7 +44,18 @@ def view_student_info(request):
     
 
 def update_student_info(request):
-    return
+
+    ssn = request.POST.get("ssn")
+    name = request.POST.get("name")
+    gender = request.POST.get("gender")
+    birth_date = request.POST.get("birth_date")
+    if birth_date == '':
+        cur.execute("UPDATE Children SET name=%s, gender=%s WHERE ssn=%s", (name, gender, ssn))
+    else:
+        cur.execute("UPDATE Children SET name=%s, gender=%s, birth_date=%s WHERE ssn=%s", (name, gender, birth_date, ssn))
+    db.commit()
+
+    return view_student_info(request)
 
 
 def view_student_courses(request):

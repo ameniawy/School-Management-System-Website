@@ -25,7 +25,7 @@ cur = db.cursor()
 
 
 def index(request):
-    # return TemplateResponse(request, 'main/index.html')
+    # return TemplateResponse(request, 'main/index3.html')
     return login_view(request)
 
 

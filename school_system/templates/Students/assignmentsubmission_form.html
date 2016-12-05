@@ -1,8 +1,6 @@
-<html>
-<head>
-  <title>Assignment submission</title>
-</head>
-<body>
+
+{% extends "Students/index.html" %}
+{% block content %}
 
 <h1> Submit an assignment</h1>
 
@@ -19,10 +17,7 @@
         <input type="text" name="answer"  />
         
 
-        
-
-
-        <input type="submit" value="SUBMIT AN ASSIGNMENT" />
+        <input type="submit" value="SUBMIT AN ASSIGNMENT" class="waves-effect waves-light btn" />
     </form>
 
-</div>
+{% endblock %}

@@ -1,12 +1,6 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      View ACTIVITIES
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
 
     {% for activity in data %}
     <div class="activity">
@@ -20,12 +14,10 @@
         <input type="hidden" name="activity_location" value="{{ activity.location }}" />
         <input type="hidden" name="activity_type" value="{{activity.ac_type}}" />
 
-      <input type="submit" value="Join Activity">
+      <input type="submit" value="Join Activity" class="waves-effect waves-light btn" >
     </form>
 
     </div>
     <hr>
     {% endfor %}
-  </body>
-
-</html>
+{% endblock %}

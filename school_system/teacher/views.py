@@ -25,7 +25,10 @@ def index(request):
 
 
 def view_courses(request):
-    teacher_id = 3
+    username = request.user.get_username()
+    cur.execute("SELECT id FROM Teachers WHERE username=%s", (username))
+    teacher_id = cur.fetchone()[0]
+
     #cur.execute("SELECT * FROM Schools WHERE (name, s_address) IN (SELECT school_name, school_address FROM Adminstrators a WHERE a.username =%s)", (username))
     cur.execute("SELECT * FROM Courses c where c.code in (select ct.course_code from Course_Teached_By_Teacher ct where ct.teacher_id = %s) order by c.c_level, c.grade_code", (teacher_id))
     data = cur.fetchall()
@@ -50,7 +53,10 @@ def post_assignment(request):
 
 
 def posted_assignment(request):
-    teacher_id = 3
+    username = request.user.get_username()
+    cur.execute("SELECT id FROM Teachers WHERE username=%s", (username))
+    teacher_id = cur.fetchone()[0]
+
     code =  request.GET.get('course_code')
     ddate =  request.GET.get('due_date')
     pdate =  request.GET.get('post_date')
@@ -64,7 +70,10 @@ def posted_assignment(request):
 
 
 def view_assignments(request):
-    teacher_id = 3
+    username = request.user.get_username()
+    cur.execute("SELECT id FROM Teachers WHERE username=%s", (username))
+    teacher_id = cur.fetchone()[0]
+
     cur.execute("SELECT * FROM Assignments a where a.teacher_id = %s", (teacher_id))
     data = cur.fetchall()
     all_data = []
@@ -113,9 +122,6 @@ def grade_assignment(request):
 
     return view_assignments(request)
 
-
-
-
 # 4 Write a report about a student in a specific course. The report contains his/her comments.
 # but the course part wasn't mentioned before!!!
 
@@ -128,7 +134,10 @@ def submitted_report(request):
     student_id = request.GET.get('student_id')
     date = request.GET.get('date')
     content = request.GET.get('content')
-    teacher_id = 3
+    username = request.user.get_username()
+    cur.execute("SELECT id FROM Teachers WHERE username=%s", (username))
+    teacher_id = cur.fetchone()[0]
+
     cur.execute("INSERT INTO Reports(report_date, student_id, teacher_id, content) VALUES(%s, %s, %s, %s)", (date, student_id, teacher_id, content))
     db.commit()
     return TemplateResponse(request, 'teacher/write_report.html', {"date": date, "student_id": student_id, "teacher_id": teacher_id, "content": content})
@@ -143,7 +152,10 @@ def question_for_course(request):
 
 def view_questions(request):
     code = request.GET.get('course_code')
-    teacher_id = 3
+    username = request.user.get_username()
+    cur.execute("SELECT id FROM Teachers WHERE username=%s", (username))
+    teacher_id = cur.fetchone()[0]
+
     cur.execute("SELECT * from Questions q where q.course_code=%s", (code))
     data = cur.fetchall()
     all_data = []
@@ -172,7 +184,10 @@ def post_answer(request):
 
 
 def view_students(request):
-    teacher_id = 3
+    username = request.user.get_username()
+    cur.execute("SELECT id FROM Teachers WHERE username=%s", (username))
+    teacher_id = cur.fetchone()[0]
+
     cur.execute("SELECT ss.id, ss.username from Students ss, School_enrolled_Student ses where ses.student_id = ss.id and ss.id in (select s.student_id from School_enrolled_Student s where s.grade_code in (select distinct grade_code from Courses where code in (select distinct course_code from Course_Teached_By_Teacher where teacher_id = %s))) order by ses.grade_code, ss.username", (teacher_id))
     data = cur.fetchall()
     all_data = []

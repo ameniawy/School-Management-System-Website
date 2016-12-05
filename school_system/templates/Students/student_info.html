@@ -1,16 +1,30 @@
-<!DOCTYPE HTML>
-<html>
-  <head>
-    <title>
-      {{data.username}}
-    </title>
-  </head>
 
-  <body>
+{% extends "Students/index.html" %}
+{% block content %}
+    <br><br>
+
   <h1>{{data.name}}</h1>
-  <h3>{{ data.username }}</h3>
+  <h3>Parent: {{ data.username }}</h3>
 
-    <p>SSN: {{ data.ssn }} | Birth Date: {{ data.birth_date }} | Age: {{ data.age }} | Gender: {{ data.gender }} | Parent: {{ data.parent_username }}</p>
-  </body>
+    <p>SSN: {{ data.ssn }}</p>
+    <br>
+    <p>Birth Date: {{ data.birth_date }} | Age: {{ data.age }} | Gender: {{ data.gender }} | Parent: {{ data.parent_username }}</p>
 
-</html>
+
+    <form form action="/Students/updating_info/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="ssn" value="{{data.ssn}}" />
+
+        <p>Name:</p>
+        <input type="text" name="name" value="{{data.name}}" />
+        <p>Gender:</p>
+        <input type="text" name="gender" value="{{data.gender}}" />
+        <p>Birth Date:(YYYY-MM-DD)</p>
+        <input type="text" name="birth_date"  />
+
+        <input type="submit" value="Save Changes" class="waves-effect waves-light btn" />
+        <br><br><br><br>
+    </form>
+
+
+{% endblock %}
