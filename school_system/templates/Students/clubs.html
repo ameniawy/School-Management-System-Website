@@ -11,7 +11,15 @@
     {% for club in data %}
     <div class="club">
 
-      <p>Club NAME : {{club.club_name}}   </p>
+      <p>Club NAME : {{club.club_name}}  School: {{ club.school_name }} Purpose: {{ club.purpose }}</p>
+
+    <form name="join_club" action="/Students/clubs_join/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="club_name" value="{{ club.club_name }}" >
+        <input type="hidden" name="school_name" value="{{ club.school_name }}" >
+        <input type="hidden" name="school_address" value="{{ club.school_address }}" >
+        <input type="submit" value="Join {{ club.club_name }}">
+    </form>
       
     </div>
     <hr>

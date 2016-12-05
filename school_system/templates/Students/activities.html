@@ -16,7 +16,6 @@
 
     <form name="questions" action="/Students/join_activities/" method="POST">
       {% csrf_token %}
-        Question: <input type="text" name="question" >
         <input type="hidden" name="activity_date" value="{{ activity.ac_date }}" />
         <input type="hidden" name="activity_location" value="{{ activity.location }}" />
         <input type="hidden" name="activity_type" value="{{activity.ac_type}}" />

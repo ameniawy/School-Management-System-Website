@@ -47,7 +47,7 @@ def login_view(request):
             if type == 'teacher':
                 url = "/teacher/"
             elif type == 'student':
-                url = "/student/"
+                url = "/Students/"
             elif type == 'parent':
                 url = "/parent/home/"
 
