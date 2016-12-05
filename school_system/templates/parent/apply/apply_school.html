@@ -8,7 +8,13 @@
     <div class="card-content">
       <span class="card-title activator grey-text text-darken-4">{{school.name}}<i class="material-icons right">more_vert</i></span>
       <p><a  class="activator">Apply for child</a></p>
+        <div>
+            {% include 'parent/apply/already.html' %}
+        </div>
+
+
     </div>
+
     <div class="card-reveal">
       {% include 'parent/apply/form_apply.html' %}
     </div>

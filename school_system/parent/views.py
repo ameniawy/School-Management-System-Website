@@ -28,6 +28,9 @@ def  home(request):
     return render(request,'parent/apply/apply_school.html',{'schools':all_data,'user':unkown_user})
 
 
+
+
+
 def apply_child(request):
     unkown_user = 'super.parent'
     if request.method=='POST':
@@ -38,6 +41,17 @@ def apply_child(request):
         school_address = request.POST.get('address')
         school_name = request.POST.get('school_name')
         cur.execute('call createChild(%s,%s,%s,%s,%s)',(unkown_user, ssn, name , birth, gender))
+        cur.execute('call applyForChildInSchool(%s,%s,%s,%s)', (unkown_user, ssn, school_name, school_address))
+        db.commit()
+        return HttpResponse('done')
+    return HttpResponse('Failed')
+
+def apply_for_already_created_child(request):
+    unkown_user = 'mhmd'
+    if request.method == 'POST':
+        ssn = request.POST.get('ssn')
+        school_address = request.POST.get('address')
+        school_name = request.POST.get('school_name')
         cur.execute('call applyForChildInSchool(%s,%s,%s,%s)', (unkown_user, ssn, school_name, school_address))
         db.commit()
         return HttpResponse('done')

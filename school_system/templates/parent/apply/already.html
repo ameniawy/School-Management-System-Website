@@ -1,0 +1,16 @@
+<form method="POST" action="{% url 'parent:already' %}">
+    {% csrf_token%}
+    <div class="col s12">
+              If you already have child created write ssn here:
+           <input id="address" type="text" class="validate" name="address" hidden value="{{school.address}}">
+            <input id="school_name" type="text" class="validate" name="school_name" hidden value="{{school.name}}">
+              <div class="input-field inline">
+                <input id="email" type="number" name="ssn" class="validate">
+                <label for="email" data-error="wrong" data-success="right">SSN</label>
+              </div>
+                <div>
+                    <input type="submit" value="Done">
+                </div>
+     </div>
+
+</form>
